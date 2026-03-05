@@ -19,12 +19,12 @@ try {
     if (data.image) {
       characterImg.src = "data:image/png;base64," + data.image;
     } else {
-      characterImg.src = "../app/assets/images/doormates/7.png"; // Fallback
+      characterImg.src = "/app/assets/images/doormates/7.png"; // Fallback
     }
   } else {
     console.log("No local character data found, using default.");
     if (characterImg && !characterImg.src.includes('data:image')) {
-      characterImg.src = "../app/assets/images/doormates/7.png";
+      characterImg.src = "/app/assets/images/doormates/7.png";
     }
   }
 } catch (error) {
@@ -183,7 +183,7 @@ function updatePosition() {
     const audio = targetDoor.parentElement.querySelector(".door-audio");
     if (audio) {
       audio.currentTime = 0; // 从头播放
-      audio.play();
+      audio.play().catch(e => console.warn("Audio autoplay prevented by browser. User interaction needed:", e));
     }
 
     // // ✅ 如果是第六个门，就播放视频和音频
