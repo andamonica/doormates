@@ -1,0 +1,133 @@
+.room-page-body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0; /* 初始隐藏 */
+  transition: opacity 1s ease-in-out; /* 淡入动画 */
+}
+
+.room-wrapper {
+  position: relative;
+  width: 100%;
+
+  margin: 0 auto;
+  aspect-ratio: 16 / 10; /* 保持比例 */
+  overflow: hidden;
+  transform-origin: top left;
+}
+
+/* 背景图铺满容器 */
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 门的位置用百分比定位，相对容器 */
+.door {
+  position: absolute;
+  top: 5%; /* 根据原始设计调整 */
+  left: -1%; /* 根据原始设计调整 */
+  width: 27%;
+  height: 86%;
+  transform-origin: 8% center;
+  transition: transform 1s ease-in-out;
+  z-index: 2;
+}
+
+/* 左边视频 */
+.left-video {
+  position: absolute;
+  top: 56%;
+  left: 20%;
+  width: 30%;
+  z-index: 2;
+}
+
+/* 右边板子图像 */
+.board-image {
+  position: absolute;
+  margin-top: 7%;
+  right: 10%;
+  width: 24%;
+  z-index: 2;
+}
+
+/* 成功反馈图像 */
+.success-image {
+  position: absolute;
+  margin-top: 8.6%;
+  right: 22.8%;
+  width: 10%;
+  z-index: 3; /* 显示在 board 上面 */
+  display: none;
+}
+
+/* 输入数字6 */
+.answer-box {
+  position: absolute;
+  top: 18%; /* 控制回答板位置 */
+  left: 74.7%;
+
+  padding: 0.8%;
+
+  border-radius: 0.8vw;
+  width: 20%; /* 👈 设置宽度 */
+  height: 8vw;
+
+  z-index: 4;
+}
+
+.answer-box input {
+  position: absolute;
+  width: 44%;
+  height: 3vw;
+  top: 0%;
+  left: 5%;
+  padding: 0.5vw;
+  font-size: 0.9vw;
+
+  border: 0.1vw solid black; /* 添加黑色边框 */
+}
+
+.answer-box button {
+  position: absolute;
+  width: 25%;
+  height: 2vw;
+  padding: 0.2vw 0.4vw;
+  left: -10%;
+  font-size: 1vw;
+  top: 40%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0.1vw solid black; /* 添加黑色边框 */
+  background-color: #d3d5dd; /* 灰色填充背景 */
+
+  border-radius: 0.4vw; /* 可选：让按钮圆润些 */
+  cursor: pointer; /* 鼠标悬停时变为手型 */
+  transition: background-color 0.3s ease;
+}
+
+.answer-box button:hover {
+  background-color: #8d92a5; /* 悬停时更深的灰色 */
+  color: white;
+}
+.rotate-image {
+  position: absolute;
+  margin-top: 35%;
+  /* 使它紧贴 board 的右边，假设 board 宽度是 300px */
+  left: 80%;
+  width: 15%;
+  transform-origin: top left; /* 以左上角为旋转中心 */
+  transform: rotate(0deg);
+  transition: transform 0.5s ease;
+  z-index: 4;
+}

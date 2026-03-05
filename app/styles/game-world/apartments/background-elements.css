@@ -1,0 +1,87 @@
+/* Walls */
+/* ------------------------------------ */
+
+.yellow-wall {
+  /* Position */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -4;
+
+  /* Size */
+  width: 100vw;
+  height: 100vh;
+
+  /* Other */
+  background-color: #fffcc4;
+  border-top: 0.5px solid black;
+}
+
+.lower-wall {
+  /* Position */
+  position: fixed;
+  bottom: var(--distance-bottom-wall);
+  left: 0;
+  z-index: -1;
+
+  /* Size */
+  width: 100vw;
+  height: var(--height-wall);
+
+  /* Other */
+  border-top: 1px solid black;
+  background-color: rgb(237, 211, 198);
+
+  /* 棕色横线，每5vh一条（共3条） */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(4vh - 1px),
+    #8b5c2a calc(4vh - 1px),
+    #8b5c2a 4vh
+  );
+  background-size: 100vw var(--height-wall);
+  background-repeat: no-repeat;
+}
+
+.green-plank {
+  /* Position */
+  position: fixed;
+  bottom: calc(var(--distance-bottom-wall) + var(--height-wall));
+  left: 0;
+  z-index: -1;
+
+  /* Size */
+  width: 100vw;
+  height: 20px;
+
+  /* Other */
+  background-color: #e1e7ad;
+  border-top: 1px solid black;
+}
+
+/* Picture on wall */
+/* ------------------------------------ */
+
+.picture-container {
+  position: absolute;
+  left: calc(var(--distance-door-left) + var(--width-door) + 50px);
+  bottom: calc(var(--distance-bottom-wall) + var(--height-wall) + 50px);
+  z-index: 1;
+  pointer-events: none; /* 如不需交互可加 */
+}
+
+/* 画框和画 */
+.picture-frame {
+  width: var(--width-wall-picture); /* 根据实际需求调整大小 */
+}
+
+.picture-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 15px;
+  z-index: 2;
+}

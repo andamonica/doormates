@@ -1,0 +1,11 @@
+.ubahn-bg-panel {
+  position: relative;
+  width: auto;
+  height: 100vh;
+}
+
+.ubahn-bg-img {
+  width: auto;
+  height: 100%;
+  max-width: none;
+}

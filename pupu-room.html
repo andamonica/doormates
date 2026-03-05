@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doormates</title>
+
+
+  <link rel="stylesheet" href="/app/styles/resets.css?v=20260305">
+  <link rel="stylesheet" href="/app/styles/character-creator/character-creator.css?v=20260305">
+  <link rel="stylesheet" href="/app/styles/typo.css?v=20260305">
+  <link rel="stylesheet" href="/app/styles/btns.css?v=20260305">
+  <link rel="stylesheet" href="/app/styles/game-world/background-panel.css?v=20260305">
+  <link rel="stylesheet" href="/app/styles/game-world/game-world.css?v=20260305">
+  <link rel="stylesheet" href="/app/styles/game-world/character.css?v=20260305">
+  <link rel="stylesheet" href="/app/styles/game-world/rooms.css?v=20260305">
+  <link rel="stylesheet" href="/app/styles/doormates/doormates.css?v=20260305">
+
+
+
+  <link rel="stylesheet" href="/app/styles/game-world/pupu-room.css?v=20260305">
+
+  <link rel="stylesheet" href="/app/styles/game-world/feuchtigkeit-room.css?v=20260305">
+
+  <link rel="stylesheet" href="/app/styles/game-world/horse-room.css?v=20260305">
+
+  <link rel="stylesheet" href="/app/styles/game-world/traffic-room.css?v=20260305">
+
+
+
+  <script src="/app/js/fabric.min.js"></script>
+  <script src="/app/js/js.cookie.min.js"></script>
+
+</head>
+
+<body class=""><!-- pupu tur -->
+
+
+  <div class="room-wrapper">
+    <img src="/app/assets/images/pupu-room/raum2-11.png" class="background" alt="全屏照片">
+    <!-- rotate tur -->
+    <img src="/app/assets/images/pupu-room/rotate-tur-blau.png" id="door-image0" class="door" alt="自定义图片"
+      onclick="openDoor()" />
+
+    <div class="photo-container1">
+      <img src="/app/assets/images/pupu-room/dekoration1.png" alt="Full Image" class="background-image" />
+      <img src="/app/assets/images/pupu-room/pupu.png" alt="Overlay Image" class="pupu-overlay-image"
+        id="hover-image" />
+      <audio id="hover-audio" src="/app/assets/audio/pupu-room/fart.mp3" preload="auto"></audio>
+    </div>
+  </div>
+
+
+  <script src="/app/js/rooms/room.js"></script>
+  <script src="/app/js/doormates/doormates.js"></script>
+
+
+
+  <script src="/app/js/rooms/pupu-room.js"></script>
+</body>
+
+</html>

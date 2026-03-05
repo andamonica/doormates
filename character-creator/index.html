@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Doormates</title>
+  <link href="/app/styles/resets.css" rel="stylesheet" />
+  <link href="/app/styles/character-creator/character-creator.css" rel="stylesheet" />
+  <link href="/app/styles/typo.css" rel="stylesheet" />
+  <link href="/app/styles/btns.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/background-panel.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/doors.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/game-world.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/character.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/rooms.css" rel="stylesheet" />
+  <link href="/app/styles/doormates/doormates.css" rel="stylesheet" />
+  <link href="/app/styles/page-cover.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/overlay-ui/overlay-ui.css" rel="stylesheet" />
+  <script src="/app/js/fabric.min.js"></script>
+  <script src="/app/js/js.cookie.min.js"></script>
+</head>
+
+<body class="character-creator-page">
+  <div class="overlay-ui" id="overlay-ui">
+    <div class="overlay-ui-btn-container overlay-ui-btn-container-top">
+      <button class="btn force-pointer-events" data-target="/map/index.html" id="btn-back-to-map">
+        Back to Map
+      </button>
+      <button class="btn force-pointer-events" data-target="/doormates/index.html" id="btn-restart-game">
+        Restart Game
+      </button>
+    </div>
+  </div>
+  <div class="page-cover">
+    <div class="font-compagnon-light" style="font-size: 5vw; text-align: center; ">
+      <span>
+        Get a bigger screen!
+      </span>
+    </div>
+  </div>
+  <main class="wrapper-page">
+    <div class="character-creator" id="CharactorCreator">
+      <div class="separator-line"></div>
+      <div class="background-overlay"></div>
+      <img class="background-png" src="/app/assets/images/gardine.png" />
+      <img class="background-png2" src="/app/assets/images/gardine2.png" />
+      <img class="background-png3" src="/app/assets/images/teppich.png" />
+      <div class="left-side">
+        <div class="feature-selection-menu font-compagnon-light-character" id="featureSelectionMenu">
+          <div class="btn-group">
+            <button class="btn" id="btn_face">
+              Gesicht </button>
+            <button class="btn" id="btn_hair">
+              Haare </button>
+            <button class="btn" id="btn_eyes">
+              Augen </button>
+            <button class="btn" id="btn_nose">
+              Nase </button>
+            <button class="btn" id="btn_mouse">
+              Mund </button>
+            <button class="btn" id="btn_top">
+              Oberteil </button>
+            <button class="btn" id="btn_legs">
+              Beine </button>
+            <button class="btn" id="btn_accessory">
+              Schmuckstück </button>
+            <button class="btn" id="btn_shoes">
+              Schuhe </button>
+          </div>
+        </div>
+        <div class="feature-options-viewer" id="featureOptionsViewer">
+          <div class="options-group hidden" id="optionsGroup_hair">
+            <div class="option-img" data-id="hair0"
+              data-img-url="/media/pages/character-creator/a5ffcd2bd2-1767464496/160.png">
+              <img src="/media/pages/character-creator/a5ffcd2bd2-1767464496/160.png" />
+            </div>
+            <div class="option-img" data-id="hair1"
+              data-img-url="/media/pages/character-creator/9d35fff910-1767464491/161.png">
+              <img src="/media/pages/character-creator/9d35fff910-1767464491/161.png" />
+            </div>
+            <div class="option-img" data-id="hair2"
+              data-img-url="/media/pages/character-creator/9daa2eb473-1767464483/162.png">
+              <img src="/media/pages/character-creator/9daa2eb473-1767464483/162.png" />
+            </div>
+            <div class="option-img" data-id="hair3"
+              data-img-url="/media/pages/character-creator/8d7220f3cd-1767464490/163.png">
+              <img src="/media/pages/character-creator/8d7220f3cd-1767464490/163.png" />
+            </div>
+            <div class="option-img" data-id="hair4"
+              data-img-url="/media/pages/character-creator/12c84c1df3-1767464499/hair4.png">
+              <img src="/media/pages/character-creator/12c84c1df3-1767464499/hair4.png" />
+            </div>
+            <div class="option-img" data-id="hair5"
+              data-img-url="/media/pages/character-creator/e59f37fc6c-1767464499/hair5.png">
+              <img src="/media/pages/character-creator/e59f37fc6c-1767464499/hair5.png" />
+            </div>
+            <div class="option-img" data-id="hair6"
+              data-img-url="/media/pages/character-creator/a3d3d72103-1767464506/hair6.png">
+              <img src="/media/pages/character-creator/a3d3d72103-1767464506/hair6.png" />
+            </div>
+            <div class="option-img" data-id="hair7"
+              data-img-url="/media/pages/character-creator/75428b6ba8-1767464505/hair7.png">
+              <img src="/media/pages/character-creator/75428b6ba8-1767464505/hair7.png" />
+            </div>
+            <div class="option-img" data-id="hair8"
+              data-img-url="/media/pages/character-creator/0853549a8b-1767464549/hair8.png">
+              <img src="/media/pages/character-creator/0853549a8b-1767464549/hair8.png" />
+            </div>
+            <div class="option-img" data-id="hair9"
+              data-img-url="/media/pages/character-creator/0c9c82d6c1-1767464549/hair9.png">
+              <img src="/media/pages/character-creator/0c9c82d6c1-1767464549/hair9.png" />
+            </div>
+            <div class="option-img" data-id="hair10"
+              data-img-url="/media/pages/character-creator/73942689a4-1767464521/hair10.png">
+              <img src="/media/pages/character-creator/73942689a4-1767464521/hair10.png" />
+            </div>
+            <div class="option-img" data-id="hair11"
+              data-img-url="/media/pages/character-creator/62904c2566-1767464520/hair11.png">
+              <img src="/media/pages/character-creator/62904c2566-1767464520/hair11.png" />
+            </div>
+            <div class="option-img" data-id="hair12"
+              data-img-url="/media/pages/character-creator/8a12eada23-1767464524/hair12.png">
+              <img src="/media/pages/character-creator/8a12eada23-1767464524/hair12.png" />
+            </div>
+            <div class="option-img" data-id="hair13"
+              data-img-url="/media/pages/character-creator/a20fa4e9f7-1767464524/hair13.png">
+              <img src="/media/pages/character-creator/a20fa4e9f7-1767464524/hair13.png" />
+            </div>
+            <div class="option-img" data-id="hair14"
+              data-img-url="/media/pages/character-creator/5c595b60ac-1767464516/hair14.png">
+              <img src="/media/pages/character-creator/5c595b60ac-1767464516/hair14.png" />
+            </div>
+            <div class="option-img" data-id="hair15"
+              data-img-url="/media/pages/character-creator/716fcaaf97-1767464512/hair115.png">
+              <img src="/media/pages/character-creator/716fcaaf97-1767464512/hair115.png" />
+            </div>
+            <div class="option-img" data-id="hair16"
+              data-img-url="/media/pages/character-creator/ee0932df98-1767464516/hair116.png">
+              <img src="/media/pages/character-creator/ee0932df98-1767464516/hair116.png" />
+            </div>
+            <div class="option-img" data-id="hair17"
+              data-img-url="/media/pages/character-creator/f57a79e48b-1767464512/hair17.png">
+              <img src="/media/pages/character-creator/f57a79e48b-1767464512/hair17.png" />
+            </div>
+          </div>
+          <div class="options-group hidden" id="optionsGroup_face">
+            <div class="option-img" data-id="face0"
+              data-img-url="/media/pages/character-creator/dcfbe8ffe2-1767464510/166.png">
+              <img src="/media/pages/character-creator/dcfbe8ffe2-1767464510/166.png" />
+            </div>
+            <div class="option-img" data-id="face1"
+              data-img-url="/media/pages/character-creator/dafd964141-1767464497/158.png">
+              <img src="/media/pages/character-creator/dafd964141-1767464497/158.png" />
+            </div>
+            <div class="option-img" data-id="face2"
+              data-img-url="/media/pages/character-creator/a18d41122f-1767464547/168.png">
+              <img src="/media/pages/character-creator/a18d41122f-1767464547/168.png" />
+            </div>
+            <div class="option-img" data-id="face3"
+              data-img-url="/media/pages/character-creator/e0ebcb3978-1767464551/169.png">
+              <img src="/media/pages/character-creator/e0ebcb3978-1767464551/169.png" />
+            </div>
+            <div class="option-img" data-id="face4"
+              data-img-url="/media/pages/character-creator/c0286a21fc-1767464497/170.png">
+              <img src="/media/pages/character-creator/c0286a21fc-1767464497/170.png" />
+            </div>
+            <div class="option-img" data-id="face5"
+              data-img-url="/media/pages/character-creator/8d5f2ba74a-1767464501/171.png">
+              <img src="/media/pages/character-creator/8d5f2ba74a-1767464501/171.png" />
+            </div>
+            <div class="option-img" data-id="face6"
+              data-img-url="/media/pages/character-creator/332ba1ff23-1767464510/172.png">
+              <img src="/media/pages/character-creator/332ba1ff23-1767464510/172.png" />
+            </div>
+            <div class="option-img" data-id="face7"
+              data-img-url="/media/pages/character-creator/053b585f76-1767464503/173.png">
+              <img src="/media/pages/character-creator/053b585f76-1767464503/173.png" />
+            </div>
+            <div class="option-img" data-id="face8"
+              data-img-url="/media/pages/character-creator/bcaa9c73b9-1767464495/174.png">
+              <img src="/media/pages/character-creator/bcaa9c73b9-1767464495/174.png" />
+            </div>
+            <div class="option-img" data-id="face9"
+              data-img-url="/media/pages/character-creator/2fb01c82d1-1767464491/175.png">
+              <img src="/media/pages/character-creator/2fb01c82d1-1767464491/175.png" />
+            </div>
+            <div class="option-img" data-id="face10"
+              data-img-url="/media/pages/character-creator/940d4769ed-1767464482/176.png">
+              <img src="/media/pages/character-creator/940d4769ed-1767464482/176.png" />
+            </div>
+            <div class="option-img" data-id="face11"
+              data-img-url="/media/pages/character-creator/e209d10ca6-1767464484/face11.png">
+              <img src="/media/pages/character-creator/e209d10ca6-1767464484/face11.png" />
+            </div>
+            <div class="option-img" data-id="face12"
+              data-img-url="/media/pages/character-creator/f99a0be5f5-1767464492/face12.png">
+              <img src="/media/pages/character-creator/f99a0be5f5-1767464492/face12.png" />
+            </div>
+            <div class="option-img" data-id="face13"
+              data-img-url="/media/pages/character-creator/fedc585c8c-1767464495/face13.png">
+              <img src="/media/pages/character-creator/fedc585c8c-1767464495/face13.png" />
+            </div>
+            <div class="option-img" data-id="face14"
+              data-img-url="/media/pages/character-creator/6e31fee146-1767464503/face14.png">
+              <img src="/media/pages/character-creator/6e31fee146-1767464503/face14.png" />
+            </div>
+            <div class="option-img" data-id="face15"
+              data-img-url="/media/pages/character-creator/4d3ea3e510-1767464509/face15.png">
+              <img src="/media/pages/character-creator/4d3ea3e510-1767464509/face15.png" />
+            </div>
+            <div class="option-img" data-id="face16"
+              data-img-url="/media/pages/character-creator/8988af6dbf-1767464500/face16.png">
+              <img src="/media/pages/character-creator/8988af6dbf-1767464500/face16.png" />
+            </div>
+            <div class="option-img" data-id="face17"
+              data-img-url="/media/pages/character-creator/af9fe14148-1767464497/face17.png">
+              <img src="/media/pages/character-creator/af9fe14148-1767464497/face17.png" />
+            </div>
+          </div>
+          <div class="options-group hidden" id="optionsGroup_nose">
+            <div class="option-img" data-id="nose0"
+              data-img-url="/media/pages/character-creator/0a9a701d72-1767464490/nose0.png">
+              <img src="/media/pages/character-creator/0a9a701d72-1767464490/nose0.png" />
+            </div>
+            <div class="option-img" data-id="nose1"
+              data-img-url="/media/pages/character-creator/49b1ca248c-1767464496/nose1.png">
+              <img src="/media/pages/character-creator/49b1ca248c-1767464496/nose1.png" />
+            </div>
+            <div class="option-img" data-id="nose2"
+              data-img-url="/media/pages/character-creator/79cc04a992-1767464490/nose2.png">
+              <img src="/media/pages/character-creator/79cc04a992-1767464490/nose2.png" />
+            </div>
+            <div class="option-img" data-id="nose3"
+              data-img-url="/media/pages/character-creator/7a32b4a3d2-1767464481/nose3.png">
+              <img src="/media/pages/character-creator/7a32b4a3d2-1767464481/nose3.png" />
+            </div>
+            <div class="option-img" data-id="nose4"
+              data-img-url="/media/pages/character-creator/a76d24fb3d-1767464502/nose4.png">
+              <img src="/media/pages/character-creator/a76d24fb3d-1767464502/nose4.png" />
+            </div>
+            <div class="option-img" data-id="nose5"
+              data-img-url="/media/pages/character-creator/ca15b1c72b-1767464496/nose5.png">
+              <img src="/media/pages/character-creator/ca15b1c72b-1767464496/nose5.png" />
+            </div>
+            <div class="option-img" data-id="nose6"
+              data-img-url="/media/pages/character-creator/bc34eea3a1-1767464502/nose6.png">
+              <img src="/media/pages/character-creator/bc34eea3a1-1767464502/nose6.png" />
+            </div>
+            <div class="option-img" data-id="nose7"
+              data-img-url="/media/pages/character-creator/93202699b1-1767464510/nose7.png">
+              <img src="/media/pages/character-creator/93202699b1-1767464510/nose7.png" />
+            </div>
+            <div class="option-img" data-id="nose8"
+              data-img-url="/media/pages/character-creator/360058c1f5-1767464551/nose8.png">
+              <img src="/media/pages/character-creator/360058c1f5-1767464551/nose8.png" />
+            </div>
+            <div class="option-img" data-id="nose9"
+              data-img-url="/media/pages/character-creator/3016aa03c6-1767464547/nose9.png">
+              <img src="/media/pages/character-creator/3016aa03c6-1767464547/nose9.png" />
+            </div>
+            <div class="option-img" data-id="nose10"
+              data-img-url="/media/pages/character-creator/69bae16573-1767464511/nose10.png">
+              <img src="/media/pages/character-creator/69bae16573-1767464511/nose10.png" />
+            </div>
+            <div class="option-img" data-id="nose11"
+              data-img-url="/media/pages/character-creator/e9b18a76b5-1767464513/nose11.png">
+              <img src="/media/pages/character-creator/e9b18a76b5-1767464513/nose11.png" />
+            </div>
+          </div>
+          <div class="options-group hidden" id="optionsGroup_eyes">
+            <div class="option-img" data-id="eyes0"
+              data-img-url="/media/pages/character-creator/8cbcf9ebb2-1767464554/178.png">
+              <img src="/media/pages/character-creator/8cbcf9ebb2-1767464554/178.png" />
+            </div>
+            <div class="option-img" data-id="eyes1"
+              data-img-url="/media/pages/character-creator/7a69057b08-1767464490/177.png">
+              <img src="/media/pages/character-creator/7a69057b08-1767464490/177.png" />
+            </div>
+            <div class="option-img" data-id="eyes2"
+              data-img-url="/media/pages/character-creator/66a6e008ad-1767464552/179.png">
+              <img src="/media/pages/character-creator/66a6e008ad-1767464552/179.png" />
+            </div>
+            <div class="option-img" data-id="eyes3"
+              data-img-url="/media/pages/character-creator/a3c0181694-1767464545/180.png">
+              <img src="/media/pages/character-creator/a3c0181694-1767464545/180.png" />
+            </div>
+            <div class="option-img" data-id="eyes4"
+              data-img-url="/media/pages/character-creator/99a7ffa6e0-1767464550/182.png">
+              <img src="/media/pages/character-creator/99a7ffa6e0-1767464550/182.png" />
+            </div>
+            <div class="option-img" data-id="eyes5"
+              data-img-url="/media/pages/character-creator/8bacd35b46-1767464548/183.png">
+              <img src="/media/pages/character-creator/8bacd35b46-1767464548/183.png" />
+            </div>
+            <div class="option-img" data-id="eyes6"
+              data-img-url="/media/pages/character-creator/2c7669902c-1767464557/184.png">
+              <img src="/media/pages/character-creator/2c7669902c-1767464557/184.png" />
+            </div>
+            <div class="option-img" data-id="eyes7"
+              data-img-url="/media/pages/character-creator/bdb3406dfa-1767464555/185.png">
+              <img src="/media/pages/character-creator/bdb3406dfa-1767464555/185.png" />
+            </div>
+            <div class="option-img" data-id="eyes8"
+              data-img-url="/media/pages/character-creator/92f8055f41-1767464552/186.png">
+              <img src="/media/pages/character-creator/92f8055f41-1767464552/186.png" />
+            </div>
+            <div class="option-img" data-id="eyes9"
+              data-img-url="/media/pages/character-creator/67e7a79f40-1767464554/187.png">
+              <img src="/media/pages/character-creator/67e7a79f40-1767464554/187.png" />
+            </div>
+            <div class="option-img" data-id="eyes10"
+              data-img-url="/media/pages/character-creator/9fa246e5e1-1767464489/188.png">
+              <img src="/media/pages/character-creator/9fa246e5e1-1767464489/188.png" />
+            </div>
+            <div class="option-img" data-id="eyes11"
+              data-img-url="/media/pages/character-creator/5c1261b114-1767464483/189.png">
+              <img src="/media/pages/character-creator/5c1261b114-1767464483/189.png" />
+            </div>
+            <div class="option-img" data-id="eyes12"
+              data-img-url="/media/pages/character-creator/28170251a1-1767464557/190.png">
+              <img src="/media/pages/character-creator/28170251a1-1767464557/190.png" />
+            </div>
+            <div class="option-img" data-id="eyes13"
+              data-img-url="/media/pages/character-creator/2dbeaa90a2-1767464555/191.png">
+              <img src="/media/pages/character-creator/2dbeaa90a2-1767464555/191.png" />
+            </div>
+            <div class="option-img" data-id="eyes14"
+              data-img-url="/media/pages/character-creator/fc07df6c7a-1767464540/eyes14.png">
+              <img src="/media/pages/character-creator/fc07df6c7a-1767464540/eyes14.png" />
+            </div>
+            <div class="option-img" data-id="eyes15"
+              data-img-url="/media/pages/character-creator/bd006969e5-1767464538/eyes15.png">
+              <img src="/media/pages/character-creator/bd006969e5-1767464538/eyes15.png" />
+            </div>
+            <div class="option-img" data-id="eyes16"
+              data-img-url="/media/pages/character-creator/1e285bada9-1767464542/eyes16.png">
+              <img src="/media/pages/character-creator/1e285bada9-1767464542/eyes16.png" />
+            </div>
+            <div class="option-img" data-id="eyes17"
+              data-img-url="/media/pages/character-creator/14d64122e6-1767464543/eyes17.png">
+              <img src="/media/pages/character-creator/14d64122e6-1767464543/eyes17.png" />
+            </div>
+            <div class="option-img" data-id="eyes18"
+              data-img-url="/media/pages/character-creator/dd6ddb9f68-1767464517/eyes18.png">
+              <img src="/media/pages/character-creator/dd6ddb9f68-1767464517/eyes18.png" />
+            </div>
+            <div class="option-img" data-id="eyes19"
+              data-img-url="/media/pages/character-creator/b79c3e32c5-1767464516/eyes19.png">
+              <img src="/media/pages/character-creator/b79c3e32c5-1767464516/eyes19.png" />
+            </div>
+          </div>
+          <div class="options-group hidden" id="optionsGroup_mouse">
+            <div class="option-img" data-id="mouse0"
+              data-img-url="/media/pages/character-creator/75c92989d0-1767464553/mouse0.png">
+              <img src="/media/pages/character-creator/75c92989d0-1767464553/mouse0.png" />
+            </div>
+            <div class="option-img" data-id="mouse1"
+              data-img-url="/media/pages/character-creator/9d0b236b22-1767464553/mouse1.png">
+              <img src="/media/pages/character-creator/9d0b236b22-1767464553/mouse1.png" />
+            </div>
+            <div class="option-img" data-id="mouse2"
+              data-img-url="/media/pages/character-creator/8e06d5c5bb-1767464556/mouse2.png">
+              <img src="/media/pages/character-creator/8e06d5c5bb-1767464556/mouse2.png" />
+            </div>
+            <div class="option-img" data-id="mouse3"
+              data-img-url="/media/pages/character-creator/f4f2673c09-1767464556/mouse3.png">
+              <img src="/media/pages/character-creator/f4f2673c09-1767464556/mouse3.png" />
+            </div>
+            <div class="option-img" data-id="mouse4"
+              data-img-url="/media/pages/character-creator/bc8cb503a9-1767464549/mouse4.png">
+              <img src="/media/pages/character-creator/bc8cb503a9-1767464549/mouse4.png" />
+            </div>
+            <div class="option-img" data-id="mouse5"
+              data-img-url="/media/pages/character-creator/4cb261a2cd-1767464549/mouse5.png">
+              <img src="/media/pages/character-creator/4cb261a2cd-1767464549/mouse5.png" />
+            </div>
+            <div class="option-img" data-id="mouse6"
+              data-img-url="/media/pages/character-creator/b109498c4a-1767464545/mouse6.png">
+              <img src="/media/pages/character-creator/b109498c4a-1767464545/mouse6.png" />
+            </div>
+            <div class="option-img" data-id="mouse7"
+              data-img-url="/media/pages/character-creator/02513ec688-1767464545/mouse7.png">
+              <img src="/media/pages/character-creator/02513ec688-1767464545/mouse7.png" />
+            </div>
+            <div class="option-img" data-id="mouse8"
+              data-img-url="/media/pages/character-creator/393f8a9df9-1767464499/mouse8.png">
+              <img src="/media/pages/character-creator/393f8a9df9-1767464499/mouse8.png" />
+            </div>
+            <div class="option-img" data-id="mouse9"
+              data-img-url="/media/pages/character-creator/f15ffb2c8e-1767464499/mouse9.png">
+              <img src="/media/pages/character-creator/f15ffb2c8e-1767464499/mouse9.png" />
+            </div>
+            <div class="option-img" data-id="mouse10"
+              data-img-url="/media/pages/character-creator/1ef706500b-1767464515/mouse10.png">
+              <img src="/media/pages/character-creator/1ef706500b-1767464515/mouse10.png" />
+            </div>
+            <div class="option-img" data-id="mouse11"
+              data-img-url="/media/pages/character-creator/27b1b1a1ad-1767464518/mouse11.png">
+              <img src="/media/pages/character-creator/27b1b1a1ad-1767464518/mouse11.png" />
+            </div>
+            <div class="option-img" data-id="mouse12"
+              data-img-url="/media/pages/character-creator/f212b3a129-1767464513/mouse12.png">
+              <img src="/media/pages/character-creator/f212b3a129-1767464513/mouse12.png" />
+            </div>
+            <div class="option-img" data-id="mouse13"
+              data-img-url="/media/pages/character-creator/b03c0ea62c-1767464512/mouse13.png">
+              <img src="/media/pages/character-creator/b03c0ea62c-1767464512/mouse13.png" />
+            </div>
+            <div class="option-img" data-id="mouse14"
+              data-img-url="/media/pages/character-creator/b40a864d35-1767464522/mouse14.png">
+              <img src="/media/pages/character-creator/b40a864d35-1767464522/mouse14.png" />
+            </div>
+            <div class="option-img" data-id="mouse15"
+              data-img-url="/media/pages/character-creator/e25c546ae2-1767464520/mouse15.png">
+              <img src="/media/pages/character-creator/e25c546ae2-1767464520/mouse15.png" />
+            </div>
+            <div class="option-img" data-id="mouse16"
+              data-img-url="/media/pages/character-creator/c4a58a00db-1767464523/mouse16.png">
+              <img src="/media/pages/character-creator/c4a58a00db-1767464523/mouse16.png" />
+            </div>
+            <div class="option-img" data-id="mouse17"
+              data-img-url="/media/pages/character-creator/6129ab68a0-1767464524/mouse17.png">
+              <img src="/media/pages/character-creator/6129ab68a0-1767464524/mouse17.png" />
+            </div>
+            <div class="option-img" data-id="mouse18"
+              data-img-url="/media/pages/character-creator/4450d42c8a-1767464531/mouse18.png">
+              <img src="/media/pages/character-creator/4450d42c8a-1767464531/mouse18.png" />
+            </div>
+            <div class="option-img" data-id="mouse19"
+              data-img-url="/media/pages/character-creator/2234dcb85a-1767464529/mouse19.png">
+              <img src="/media/pages/character-creator/2234dcb85a-1767464529/mouse19.png" />
+            </div>
+            <div class="option-img" data-id="mouse20"
+              data-img-url="/media/pages/character-creator/65ddb5db01-1767464538/mouse20.png">
+              <img src="/media/pages/character-creator/65ddb5db01-1767464538/mouse20.png" />
+            </div>
+          </div>
+          <div class="options-group hidden" id="optionsGroup_top">
+            <div class="option-img" data-id="top0"
+              data-img-url="/media/pages/character-creator/737f7b053c-1767464528/top0.png">
+              <img src="/media/pages/character-creator/737f7b053c-1767464528/top0.png" />
+            </div>
+            <div class="option-img" data-id="top1"
+              data-img-url="/media/pages/character-creator/844d174bbf-1767464534/top1.png">
+              <img src="/media/pages/character-creator/844d174bbf-1767464534/top1.png" />
+            </div>
+            <div class="option-img" data-id="top2"
+              data-img-url="/media/pages/character-creator/bb9ef4ddec-1767464527/top2.png">
+              <img src="/media/pages/character-creator/bb9ef4ddec-1767464527/top2.png" />
+            </div>
+            <div class="option-img" data-id="top3"
+              data-img-url="/media/pages/character-creator/299d993ae9-1767464525/top3.png">
+              <img src="/media/pages/character-creator/299d993ae9-1767464525/top3.png" />
+            </div>
+            <div class="option-img" data-id="top4"
+              data-img-url="/media/pages/character-creator/c868403bb9-1767464541/top4.png">
+              <img src="/media/pages/character-creator/c868403bb9-1767464541/top4.png" />
+            </div>
+            <div class="option-img" data-id="top5"
+              data-img-url="/media/pages/character-creator/e1c1e56b80-1767464537/top5.png">
+              <img src="/media/pages/character-creator/e1c1e56b80-1767464537/top5.png" />
+            </div>
+            <div class="option-img" data-id="top6"
+              data-img-url="/media/pages/character-creator/0f86bd6e72-1767464542/top6.png">
+              <img src="/media/pages/character-creator/0f86bd6e72-1767464542/top6.png" />
+            </div>
+            <div class="option-img" data-id="top7"
+              data-img-url="/media/pages/character-creator/3e6532ae59-1767464543/top7.png">
+              <img src="/media/pages/character-creator/3e6532ae59-1767464543/top7.png" />
+            </div>
+            <div class="option-img" data-id="top8"
+              data-img-url="/media/pages/character-creator/489c536bcf-1767464519/top8.png">
+              <img src="/media/pages/character-creator/489c536bcf-1767464519/top8.png" />
+            </div>
+            <div class="option-img" data-id="top9"
+              data-img-url="/media/pages/character-creator/d2d58331b0-1767464514/top9.png">
+              <img src="/media/pages/character-creator/d2d58331b0-1767464514/top9.png" />
+            </div>
+            <div class="option-img" data-id="top10"
+              data-img-url="/media/pages/character-creator/41681cf576-1767464485/top10.png">
+              <img src="/media/pages/character-creator/41681cf576-1767464485/top10.png" />
+            </div>
+            <div class="option-img" data-id="top11"
+              data-img-url="/media/pages/character-creator/1d62f606e4-1767464488/top11.png">
+              <img src="/media/pages/character-creator/1d62f606e4-1767464488/top11.png" />
+            </div>
+            <div class="option-img" data-id="top12"
+              data-img-url="/media/pages/character-creator/1cb064b5ef-1767464494/top12.png">
+              <img src="/media/pages/character-creator/1cb064b5ef-1767464494/top12.png" />
+            </div>
+            <div class="option-img" data-id="top13"
+              data-img-url="/media/pages/character-creator/adffbefb6e-1767464492/top13.png">
+              <img src="/media/pages/character-creator/adffbefb6e-1767464492/top13.png" />
+            </div>
+            <div class="option-img" data-id="top14"
+              data-img-url="/media/pages/character-creator/f6a2492c23-1767464508/top14.png">
+              <img src="/media/pages/character-creator/f6a2492c23-1767464508/top14.png" />
+            </div>
+            <div class="option-img" data-id="top15"
+              data-img-url="/media/pages/character-creator/749805f81d-1767464504/top15.png">
+              <img src="/media/pages/character-creator/749805f81d-1767464504/top15.png" />
+            </div>
+          </div>
+          <div class="options-group hidden" id="optionsGroup_accessory">
+            <div class="option-img" data-id="accessory0"
+              data-img-url="/media/pages/character-creator/4ddb1f282e-1767464493/accessory0.png">
+              <img src="/media/pages/character-creator/4ddb1f282e-1767464493/accessory0.png" />
+            </div>
+            <div class="option-img" data-id="accessory1"
+              data-img-url="/media/pages/character-creator/6ec9cfc439-1767464493/accessory1.png">
+              <img src="/media/pages/character-creator/6ec9cfc439-1767464493/accessory1.png" />
+            </div>
+            <div class="option-img" data-id="accessory2"
+              data-img-url="/media/pages/character-creator/4d1cde1aae-1767464486/accessory2.png">
+              <img src="/media/pages/character-creator/4d1cde1aae-1767464486/accessory2.png" />
+            </div>
+            <div class="option-img" data-id="accessory3"
+              data-img-url="/media/pages/character-creator/e56020cd1e-1767464488/accessory3.png">
+              <img src="/media/pages/character-creator/e56020cd1e-1767464488/accessory3.png" />
+            </div>
+            <div class="option-img" data-id="accessory4"
+              data-img-url="/media/pages/character-creator/f4920eb76d-1767464498/accessory4.png">
+              <img src="/media/pages/character-creator/f4920eb76d-1767464498/accessory4.png" />
+            </div>
+            <div class="option-img" data-id="accessory5"
+              data-img-url="/media/pages/character-creator/c0f4e0dd2e-1767464500/accessory5.png">
+              <img src="/media/pages/character-creator/c0f4e0dd2e-1767464500/accessory5.png" />
+            </div>
+            <div class="option-img" data-id="accessory6"
+              data-img-url="/media/pages/character-creator/fb4dcb1d04-1767464507/accessory6.png">
+              <img src="/media/pages/character-creator/fb4dcb1d04-1767464507/accessory6.png" />
+            </div>
+            <div class="option-img" data-id="accessory7"
+              data-img-url="/media/pages/character-creator/48227d474e-1767464505/accessory7.png">
+              <img src="/media/pages/character-creator/48227d474e-1767464505/accessory7.png" />
+            </div>
+            <div class="option-img" data-id="accessory8"
+              data-img-url="/media/pages/character-creator/695629e993-1767464548/accessory8.png">
+              <img src="/media/pages/character-creator/695629e993-1767464548/accessory8.png" />
+            </div>
+            <div class="option-img" data-id="accessory9"
+              data-img-url="/media/pages/character-creator/e75b9c8c2a-1767464512/accesssory9.png">
+              <img src="/media/pages/character-creator/e75b9c8c2a-1767464512/accesssory9.png" />
+            </div>
+            <div class="option-img" data-id="accessory10"
+              data-img-url="/media/pages/character-creator/b5047a63b9-1767464543/accessory10.png">
+              <img src="/media/pages/character-creator/b5047a63b9-1767464543/accessory10.png" />
+            </div>
+            <div class="option-img" data-id="accessory11"
+              data-img-url="/media/pages/character-creator/8857ebae07-1767464541/accessory11.png">
+              <img src="/media/pages/character-creator/8857ebae07-1767464541/accessory11.png" />
+            </div>
+            <div class="option-img" data-id="accessory12"
+              data-img-url="/media/pages/character-creator/6b1e9dc197-1767464538/accessory12.png">
+              <img src="/media/pages/character-creator/6b1e9dc197-1767464538/accessory12.png" />
+            </div>
+            <div class="option-img" data-id="accessory13"
+              data-img-url="/media/pages/character-creator/5545a528a8-1767464541/accessory13.png">
+              <img src="/media/pages/character-creator/5545a528a8-1767464541/accessory13.png" />
+            </div>
+            <div class="option-img" data-id="accessory14"
+              data-img-url="/media/pages/character-creator/6981f0dec6-1767464526/accessory14.png">
+              <img src="/media/pages/character-creator/6981f0dec6-1767464526/accessory14.png" />
+            </div>
+            <div class="option-img" data-id="accessory15"
+              data-img-url="/media/pages/character-creator/00fc94ac04-1767464528/accessory15.png">
+              <img src="/media/pages/character-creator/00fc94ac04-1767464528/accessory15.png" />
+            </div>
+            <div class="option-img" data-id="accessory16"
+              data-img-url="/media/pages/character-creator/b942267476-1767464533/accessory16.png">
+              <img src="/media/pages/character-creator/b942267476-1767464533/accessory16.png" />
+            </div>
+            <div class="option-img" data-id="accessory17"
+              data-img-url="/media/pages/character-creator/27573dce64-1767464528/accessory17.png">
+              <img src="/media/pages/character-creator/27573dce64-1767464528/accessory17.png" />
+            </div>
+          </div>
+          <div class="options-group hidden" id="optionsGroup_shoes">
+            <div class="option-img" data-id="shoes0"
+              data-img-url="/media/pages/character-creator/81e9c6eb65-1767464501/shoes0.png">
+              <img src="/media/pages/character-creator/81e9c6eb65-1767464501/shoes0.png" />
+            </div>
+            <div class="option-img" data-id="shoes1"
+              data-img-url="/media/pages/character-creator/09b0a6613c-1767464497/shoes1.png">
+              <img src="/media/pages/character-creator/09b0a6613c-1767464497/shoes1.png" />
+            </div>
+            <div class="option-img" data-id="shoes2"
+              data-img-url="/media/pages/character-creator/3ef106f938-1767464503/shoes2.png">
+              <img src="/media/pages/character-creator/3ef106f938-1767464503/shoes2.png" />
+            </div>
+            <div class="option-img" data-id="shoes3"
+              data-img-url="/media/pages/character-creator/5ca0b9b290-1767464509/shoes3.png">
+              <img src="/media/pages/character-creator/5ca0b9b290-1767464509/shoes3.png" />
+            </div>
+            <div class="option-img" data-id="shoes4"
+              data-img-url="/media/pages/character-creator/6aa2e40545-1767464491/shoes4.png">
+              <img src="/media/pages/character-creator/6aa2e40545-1767464491/shoes4.png" />
+            </div>
+            <div class="option-img" data-id="shoes5"
+              data-img-url="/media/pages/character-creator/ae4311f342-1767464495/shoes5.png">
+              <img src="/media/pages/character-creator/ae4311f342-1767464495/shoes5.png" />
+            </div>
+            <div class="option-img" data-id="shoes6"
+              data-img-url="/media/pages/character-creator/aca85ea282-1767464489/shoes6.png">
+              <img src="/media/pages/character-creator/aca85ea282-1767464489/shoes6.png" />
+            </div>
+            <div class="option-img" data-id="shoes7"
+              data-img-url="/media/pages/character-creator/e985156769-1767464484/shoes7.png">
+              <img src="/media/pages/character-creator/e985156769-1767464484/shoes7.png" />
+            </div>
+            <div class="option-img" data-id="shoes8"
+              data-img-url="/media/pages/character-creator/7ce7289348-1767464552/shoes8.png">
+              <img src="/media/pages/character-creator/7ce7289348-1767464552/shoes8.png" />
+            </div>
+            <div class="option-img" data-id="shoes9"
+              data-img-url="/media/pages/character-creator/9e2796da42-1767464554/shoes9.png">
+              <img src="/media/pages/character-creator/9e2796da42-1767464554/shoes9.png" />
+            </div>
+            <div class="option-img" data-id="shoes10"
+              data-img-url="/media/pages/character-creator/86fbffbc10-1767464501/shoes10.png">
+              <img src="/media/pages/character-creator/86fbffbc10-1767464501/shoes10.png" />
+            </div>
+            <div class="option-img" data-id="shoes11"
+              data-img-url="/media/pages/character-creator/49283d9233-1767464498/shoes11.png">
+              <img src="/media/pages/character-creator/49283d9233-1767464498/shoes11.png" />
+            </div>
+            <div class="option-img" data-id="shoes12"
+              data-img-url="/media/pages/character-creator/89c2414b84-1767464503/shoes12.png">
+              <img src="/media/pages/character-creator/89c2414b84-1767464503/shoes12.png" />
+            </div>
+            <div class="option-img" data-id="shoes13"
+              data-img-url="/media/pages/character-creator/6aac2c4484-1767464508/shoes13.png">
+              <img src="/media/pages/character-creator/6aac2c4484-1767464508/shoes13.png" />
+            </div>
+            <div class="option-img" data-id="shoes14"
+              data-img-url="/media/pages/character-creator/f67aae7db5-1767464491/shoes14.png">
+              <img src="/media/pages/character-creator/f67aae7db5-1767464491/shoes14.png" />
+            </div>
+            <div class="option-img" data-id="shoes15"
+              data-img-url="/media/pages/character-creator/7c3aa1f0aa-1767464495/shoes15.png">
+              <img src="/media/pages/character-creator/7c3aa1f0aa-1767464495/shoes15.png" />
+            </div>
+            <div class="option-img" data-id="shoes16"
+              data-img-url="/media/pages/character-creator/c6ac6f1213-1767464527/shoes1116.png">
+              <img src="/media/pages/character-creator/c6ac6f1213-1767464527/shoes1116.png" />
+            </div>
+            <div class="option-img" data-id="shoes17"
+              data-img-url="/media/pages/character-creator/c97f22b092-1767464484/shoes17.png">
+              <img src="/media/pages/character-creator/c97f22b092-1767464484/shoes17.png" />
+            </div>
+          </div>
+          <div class="options-group hidden" id="optionsGroup_legs">
+            <div class="option-img" data-id="legs0"
+              data-img-url="/media/pages/character-creator/162d51e951-1767464519/legs0.png">
+              <img src="/media/pages/character-creator/162d51e951-1767464519/legs0.png" />
+            </div>
+            <div class="option-img" data-id="legs1"
+              data-img-url="/media/pages/character-creator/823625cf8b-1767464523/legs1.png">
+              <img src="/media/pages/character-creator/823625cf8b-1767464523/legs1.png" />
+            </div>
+            <div class="option-img" data-id="legs2"
+              data-img-url="/media/pages/character-creator/312c77c8f0-1767464525/legs2.png">
+              <img src="/media/pages/character-creator/312c77c8f0-1767464525/legs2.png" />
+            </div>
+            <div class="option-img" data-id="legs3"
+              data-img-url="/media/pages/character-creator/6eb2aabc19-1767464523/legs3.png">
+              <img src="/media/pages/character-creator/6eb2aabc19-1767464523/legs3.png" />
+            </div>
+            <div class="option-img" data-id="legs5"
+              data-img-url="/media/pages/character-creator/9bff29552d-1767464514/legs5.png">
+              <img src="/media/pages/character-creator/9bff29552d-1767464514/legs5.png" />
+            </div>
+            <div class="option-img" data-id="legs7"
+              data-img-url="/media/pages/character-creator/cebc20f33d-1767464514/legs7.png">
+              <img src="/media/pages/character-creator/cebc20f33d-1767464514/legs7.png" />
+            </div>
+            <div class="option-img" data-id="legs8"
+              data-img-url="/media/pages/character-creator/4619b529e0-1767464541/legs8.png">
+              <img src="/media/pages/character-creator/4619b529e0-1767464541/legs8.png" />
+            </div>
+            <div class="option-img" data-id="legs9"
+              data-img-url="/media/pages/character-creator/dfdc17402d-1767464535/legs9.png">
+              <img src="/media/pages/character-creator/dfdc17402d-1767464535/legs9.png" />
+            </div>
+            <div class="option-img" data-id="legs10"
+              data-img-url="/media/pages/character-creator/9e81ce927f-1767464492/legs10.png">
+              <img src="/media/pages/character-creator/9e81ce927f-1767464492/legs10.png" />
+            </div>
+            <div class="option-img" data-id="legs11"
+              data-img-url="/media/pages/character-creator/a8d6dbfd57-1767464494/legs11.png">
+              <img src="/media/pages/character-creator/a8d6dbfd57-1767464494/legs11.png" />
+            </div>
+            <div class="option-img" data-id="legs12"
+              data-img-url="/media/pages/character-creator/beeb2e8f6f-1767464488/legs12.png">
+              <img src="/media/pages/character-creator/beeb2e8f6f-1767464488/legs12.png" />
+            </div>
+            <div class="option-img" data-id="legs13"
+              data-img-url="/media/pages/character-creator/101995edf6-1767464486/legs13.png">
+              <img src="/media/pages/character-creator/101995edf6-1767464486/legs13.png" />
+            </div>
+            <div class="option-img" data-id="legs14"
+              data-img-url="/media/pages/character-creator/a970c574d9-1767464500/legs14.png">
+              <img src="/media/pages/character-creator/a970c574d9-1767464500/legs14.png" />
+            </div>
+            <div class="option-img" data-id="legs15"
+              data-img-url="/media/pages/character-creator/8c863de894-1767464498/legs15.png">
+              <img src="/media/pages/character-creator/8c863de894-1767464498/legs15.png" />
+            </div>
+            <div class="option-img" data-id="legs16"
+              data-img-url="/media/pages/character-creator/4ff8957664-1767464504/legs16.png">
+              <img src="/media/pages/character-creator/4ff8957664-1767464504/legs16.png" />
+            </div>
+            <div class="option-img" data-id="legs17"
+              data-img-url="/media/pages/character-creator/66faefeec0-1767464508/legs117.png">
+              <img src="/media/pages/character-creator/66faefeec0-1767464508/legs117.png" />
+            </div>
+            <div class="option-img" data-id="legs18"
+              data-img-url="/media/pages/character-creator/a5899d7bb6-1767464550/legs18.png">
+              <img src="/media/pages/character-creator/a5899d7bb6-1767464550/legs18.png" />
+            </div>
+            <div class="option-img" data-id="legs19"
+              data-img-url="/media/pages/character-creator/c227a922b3-1767464548/legs19.png">
+              <img src="/media/pages/character-creator/c227a922b3-1767464548/legs19.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <img alt="背景装饰" class="mirror-img" src="/app/assets/images/spiegel3.png" />
+        <div class="character-viewer" id="characterViewer">
+          <div class="canvas-container" id="characterCanvasContainer">
+            <canvas class="canvas" id="characterCanvas">
+            </canvas>
+          </div>
+        </div>
+        <div class="character-viewer-controls text-sm">
+          <div class="button-group">
+            <button class="character-btn btn" id="undoBtn">
+              Undo
+            </button>
+            <button class="character-btn btn" id="flipBtn">
+              Flip
+            </button>
+          </div>
+          <div class="button-group">
+            <div class="character-name-container">
+              <input class="btn" id="characterNameInput" maxlength="30" placeholder="Enter name..." type="text" />
+              <div class="notification-display hidden" id="notificationDisplay">
+              </div>
+            </div>
+          </div>
+          <div class="button-group">
+            <button class="character-btn btn" id="saveBtn">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="/app/js/helper-functions/helper-functions.js"></script>
+  <script src="/app/js/variables-global.js"></script>
+  <script src="/app/js/rooms/room.js"></script>
+  <script src="/app/js/doormates/doormates.js"></script>
+  <script src="/app/js/overlay-ui/overlay-ui.js"></script>
+  <script src="/app/js/character-creator/character-creator-save.js"></script>
+  <script src="/app/js/character-creator/character-creator.js?v=1"></script>
+</body>
+
+</html>

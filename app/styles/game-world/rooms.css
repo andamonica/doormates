@@ -1,0 +1,104 @@
+.room-page-body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0; /* 初始隐藏 */
+  transition: opacity 1s ease-in-out; /* 淡入动画 */
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+}
+.custom-photo {
+  position: absolute;
+  top: -1%;
+  left: -0.5%;
+  width: 25.6%;
+  height: auto;
+  z-index: 111115; /* 保证不被其他背景图遮住 */
+  perspective: 1000px;
+  transform: translateY(-1%);
+}
+
+.rotating-door {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 8% center; /* 关键：绕左边轴转 */
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+  box-shadow: none !important;
+}
+
+.content-layer {
+  position: absolute;
+  margin-top: 25%;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* video 与 klo 图片所在层 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw;
+}
+
+.left-video {
+  width: 30%;
+  margin-left: 10%; /* 往左移 */
+  z-index: 11;
+  left: 35%;
+  margin-top: 10%; /* 往左移 */
+}
+
+.right-image {
+  width: 60vw;
+  max-width: 1000px;
+  margin-right: 5vw; /* 往左移 */
+  margin-bottom: 10vw;
+}
+
+.overlay-image {
+  position: absolute;
+  z-index: 2; /* duck 图层在 klo 图上面 */
+}
+
+/* 公共 bounce 动画 */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* 跳动幅度可调整 */
+  }
+}
+
+/* 所有 duck 图统一 hover 动画 */
+.overlay-image img:hover {
+  animation: bounce 0.5s ease-in-out;
+}
+
+/* 自定义每个 duck 的位置 */
+.bounce-on-hover1 {
+  margin-top: 22%;
+  right: 48.5%;
+}
+.bounce-on-hover2 {
+  margin-top: 23%;
+  right: 36.5%;
+}
+.bounce-on-hover3 {
+  margin-top: 23%;
+  right: 25%;
+}
+.bounce-on-hover4 {
+  margin-top: 23%;
+  right: 14%;
+}

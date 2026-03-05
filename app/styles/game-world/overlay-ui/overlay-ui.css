@@ -1,0 +1,33 @@
+.overlay-ui {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.overlay-ui-btn-container {
+  position: absolute;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.overlay-ui-btn-container-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Hiding of specific buttons, based on current page */
+.map-page #btn-back-to-map,
+.character-creator-page #btn-back-to-map {
+  display: none;
+}
+
+/* Hiding of overlay on specific pages */
+.doormates-page .overlay-ui {
+  display: none;
+}

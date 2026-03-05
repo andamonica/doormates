@@ -1,0 +1,7 @@
+.bg-panel-section {
+  position: relative;
+  width: var(--width-panel-section);
+  height: 100%;
+  flex-shrink: 0;
+  overflow: visible; /* 防止裁剪 */
+}

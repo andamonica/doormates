@@ -1,0 +1,30 @@
+#restart-btn {
+  position: fixed;
+  top: 0.35rem;
+  right: 0.5rem;
+  z-index: 99;
+  padding: 0.5rem 1rem;
+  background-color: #fffcc2;
+  color: #000;
+  border: 0.5px solid plum;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: #fffcc2;
+  color: #000;
+  border: 0.5px solid plum;
+  cursor: pointer;
+  font-family: "compagnon-light";
+}
+
+.btn.force-pointer-events {
+  pointer-events: auto !important;
+}
+
+.btn:hover {
+  background-color: plum;
+  color: #fffcc2;
+}

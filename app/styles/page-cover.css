@@ -1,0 +1,21 @@
+.page-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999999999;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-yellow);
+}
+
+@media screen and (min-width: 751px) {
+  .page-cover {
+    display: none;
+  }
+}

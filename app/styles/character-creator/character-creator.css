@@ -1,0 +1,237 @@
+.character-creator {
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+.character-creator .background-png {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 140%;
+  opacity: 0.9;
+  z-index: -1;
+  pointer-events: none;
+}
+.character-creator .background-png2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 140%;
+  opacity: 0.9;
+  z-index: -1;
+  pointer-events: none;
+}
+.character-creator .background-png3 {
+  position: absolute;
+  top: 60%;
+  right: 15%;
+  width: auto;
+  height: auto;
+  opacity: 0.9;
+  z-index: -1;
+  pointer-events: none; /* 防止挡住点击 */
+
+  transform: scaleY(0.3);
+}
+
+.character-creator::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(211, 237, 255, 1) 4px, rgba(211, 237, 255, 1) 7px), #fff;
+  z-index: -2;
+}
+
+.character-creator::after {
+  content: "";
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-color: #ffd6dd; /* 粉色 */
+  background-image: repeating-linear-gradient(to bottom, rgba(160, 82, 45, 0.1), rgba(108, 160, 45, 0.1) 2px, transparent 3px, transparent 6px);
+  z-index: -2;
+}
+
+.separator-line {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  z-index: -1;
+}
+
+/* Character creator layout 左右布局*/
+/* ------------------------------------------------ */
+
+.character-creator .left-side {
+  flex: 1.6;
+  border: 0.5px solid plum;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-creator .right-side {
+  position: relative;
+  flex: 1;
+}
+
+.character-creator .right-side .background-png1 {
+  flex: 1;
+
+  background-size: cover; /* 图片覆盖整个区域 */
+  background-position: center; /* 图片居中显示 */
+  background-repeat: no-repeat; /* 不重复平铺 */
+  transform: scale(1.5, 2);
+  margin-top: 30%;
+}
+/* Feature selection menu 顶部几个按键 */
+/* ------------------------------------------------ */
+
+.character-creator .feature-selection-menu {
+  margin-bottom: 3rem;
+  border: 0.5px solid plum;
+}
+
+.character-creator .btn-group {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.character-creator .btn {
+  padding: 0.5rem 1rem;
+  background-color: #fffcc2;
+  color: #000;
+  border: 0.5px solid plum;
+  cursor: pointer;
+}
+
+.character-creator .btn.active {
+  background-color: #ffd6dd;
+  color: #000;
+}
+
+/* Feauture options viewer选项查看区 */
+/* ------------------------------------------------ */
+
+.character-creator .feature-options-viewer {
+  border: 0.5px solid plum;
+  flex: 1;
+}
+
+.character-creator .options-group {
+  display: flex;
+  flex-wrap: wrap; /* 允许自动换行 */
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.character-creator .options-group.hidden {
+  display: none;
+}
+
+.character-creator .option-img {
+  aspect-ratio: 1 / 1;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  flex: 0 0 calc((100% - 5 * 10px) / 6); /* 一行6个，考虑间距 */
+  box-sizing: border-box;
+}
+
+/* Character viewer 角色预览区*/
+/* ------------------------------------------------ */
+
+.character-creator .mirror-img {
+  height: 100%;
+}
+
+.character-creator .character-viewer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2% 25% 6% 20%;
+}
+
+.character-creator .character-viewer .canvas-container {
+  position: relative;
+  height: 100%;
+}
+
+.character-creator .character-viewer .canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Controls/Buttons */
+/* ------------------------------------------------ */
+
+.character-viewer-controls {
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.character-viewer-controls .button-group {
+  display: flex;
+}
+
+/* 保存*/
+.character-creator .character-btn {
+  width: 100%;
+  padding: 1rem;
+
+  border: 0.5px solid plum;
+  background-color: #fffcc2;
+  color: #000;
+}
+
+.character-name-container {
+  width: 100%;
+  text-align: center;
+}
+
+.character-name-input {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #fffcc2;
+}
+
+.character-viewer-controls .notification-display {
+  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+
+  border: 0.5px solid plum;
+  background-color: #fffcc2;
+  color: #000;
+}
+
+.character-viewer-controls .notification-display.hidden {
+  display: none;
+}

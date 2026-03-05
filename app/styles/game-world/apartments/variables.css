@@ -1,0 +1,57 @@
+/* Global variable */
+/* ------------------------------------------------ */
+
+:root {
+  /* Colors */
+  /* ------------------------------------ */
+
+  --color-yellow: #fffcca;
+
+  /* Variables for panels/sections */
+  /* ------------------------------------ */
+
+  --width-panel-section: 1000px;
+
+  /* Variables for doors */
+  /* ------------------------------------ */
+
+  --width-door: 240px;
+  --height-door: 400px;
+  --distance-door-left: 25%;
+
+  /* Variables for background elements */
+  /* ------------------------------------ */
+
+  --distance-bottom-wall: 15%;
+  --height-wall: 120px;
+  --width-wall-picture: 140px;
+}
+
+/* Responsive variable values */
+/* ------------------------------------------------ */
+
+@media screen and (min-width: 1200px) {
+  :root {
+    --width-panel-section: 1250px;
+
+    --width-door: 275px;
+    --height-door: 460px;
+
+    --height-wall: 135px;
+
+    --width-wall-picture: 155px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  :root {
+    --width-panel-section: 1500px;
+
+    --width-door: 300px;
+    --height-door: 500px;
+
+    --height-wall: 150px;
+
+    --width-wall-picture: 170px;
+  }
+}

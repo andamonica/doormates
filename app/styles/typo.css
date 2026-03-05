@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "compagnon-light";
+  src: url("/app/assets/fonts/compagnon-light.woff") format("woff");
+}
+
+.font-compagnon-light {
+  font-family: "compagnon-light";
+  font-size: 1.8rem;
+}
+
+.font-compagnon-light-speechbubble {
+  font-family: compagnon-light;
+  font-size: 28px;
+}
+
+.font-compagnon-light-character {
+  font-family: "compagnon-light";
+  font-size: 15px;
+}
+
+.font-compagnon-light-submit {
+  font-family: "compagnon-light";
+  font-size: 8px;
+}
+
+.text-sm {
+  font-family: "compagnon-light";
+  font-size: 18px;
+}

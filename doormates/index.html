@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Doormates</title>
+<link href="/app/styles/resets.css" rel="stylesheet"/>
+<link href="/app/styles/character-creator/character-creator.css" rel="stylesheet"/>
+<link href="/app/styles/typo.css" rel="stylesheet"/>
+<link href="/app/styles/btns.css" rel="stylesheet"/>
+<link href="/app/styles/game-world/background-panel.css" rel="stylesheet"/>
+<link href="/app/styles/game-world/doors.css" rel="stylesheet"/>
+<link href="/app/styles/game-world/game-world.css" rel="stylesheet"/>
+<link href="/app/styles/game-world/character.css" rel="stylesheet"/>
+<link href="/app/styles/game-world/rooms.css" rel="stylesheet"/>
+<link href="/app/styles/doormates/doormates.css" rel="stylesheet"/>
+<link href="/app/styles/page-cover.css" rel="stylesheet"/>
+<link href="/app/styles/game-world/overlay-ui/overlay-ui.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+</head>
+<body class="doormates-page">
+<div class="overlay-ui" id="overlay-ui">
+<div class="overlay-ui-btn-container overlay-ui-btn-container-top">
+<button class="btn force-pointer-events" data-target="/map/index.html" id="btn-back-to-map">
+            Back to Map
+          </button>
+<button class="btn force-pointer-events" data-target="/doormates/index.html" id="btn-restart-game">
+            Restart Game
+          </button>
+</div>
+</div><div class="page-cover">
+<div class="font-compagnon-light" style="font-size: 5vw; text-align: center; ">
+<span>
+      Get a bigger screen!
+    </span>
+</div>
+</div>
+<p class="page-title font-compagnon-light">DOORMATES</p>
+<p class="page-text-illustration font-compagnon-light">ILLUSTRATION</p>
+<p class="page-text-web-coding font-compagnon-light">WEB-CODING</p>
+<p class="page-text-xiaomo-zheng font-compagnon-light">XIAOMO ZHENG</p>
+<p class="page-text-udk font-compagnon-light">UDK</p>
+<p class="page-text-sose25 font-compagnon-light">SOSE 25</p>
+<div class="centered-image">
+<img alt="A funny moment" id="hover-door" src="/app/assets/images/doormates/tur1.png"/></div>
+<div class="image-bottom-row">
+<div class="image-wrapper-bottom">
+<img alt="图片4" class="image-bottom hover-audio-trigger" data-audio="hover-audio-hello" src="/app/assets/images/doormates/7.png"/>
+<audio id="hover-audio-hello" src="/app/assets/audio/doormates/hello.mp3"></audio>
+</div>
+<div class="image-wrapper-bottom">
+<img alt="图片4" class="image-bottom hover-audio-trigger" data-audio="hover-audio-nein" src="/app/assets/images/doormates/6.png"/>
+<audio id="hover-audio-nein" src="/app/assets/audio/doormates/nein.mp3"></audio>
+</div>
+</div>
+<div class="image-column">
+<div class="image-wrapper">
+<img alt="图片2" class="image-left hover-audio-trigger" data-audio="hover-audio-no" src="/app/assets/images/doormates/9.png"/>
+<audio id="hover-audio-no" src="/app/assets/audio/doormates/no.mp3"></audio>
+</div>
+<div class="image-wrapper">
+<img alt="图片2" class="image-left hover-audio-trigger" data-audio="hover-audio-evil-laugh" src="/app/assets/images/doormates/13.png"/>
+<audio id="hover-audio-evil-laugh" src="/app/assets/audio/doormates/evil-laugh.mp3"></audio>
+</div>
+<div class="image-wrapper">
+<img alt="图片2" class="image-left hover-audio-trigger" data-audio="hover-audio-oof" src="/app/assets/images/doormates/12.png"/>
+<audio id="hover-audio-oof" src="/app/assets/audio/doormates/oof.mp3"></audio>
+</div>
+</div>
+<div class="image-top-row">
+<div class="image-wrapper-top">
+<img alt="图片3" class="image-top hover-audio-trigger" data-audio="hover-audio-ahh" src="/app/assets/images/doormates/11.png"/>
+<audio id="hover-audio-ahh" src="/app/assets/audio/doormates/ahhh.m4a"></audio>
+</div>
+<div class="image-wrapper">
+<img alt="图片4" class="image-top hover-audio-trigger" data-audio="hover-audio-mhm" src="/app/assets/images/doormates/15.png"/>
+<audio id="hover-audio-mhm" src="/app/assets/audio/doormates/mhm.mp3"></audio>
+</div>
+</div>
+<div class="image-right-column">
+<div class="image-wrapper">
+<img alt="图片2" class="image-right hover-audio-trigger" data-audio="hover-audio-girl" src="/app/assets/images/doormates/18.png"/>
+<audio id="hover-audio-girl" src="/app/assets/audio/doormates/girl.mp3"></audio>
+</div>
+<div class="image-wrapper">
+<img alt="图片2" class="image-right hover-audio-trigger" data-audio="hover-audio-annoyed" src="/app/assets/images/doormates/2.png"/>
+<audio id="hover-audio-annoyed" src="/app/assets/audio/doormates/annoyed.mp3"></audio>
+</div>
+<div class="image-wrapper">
+<img alt="图片1" class="image-right hover-audio-trigger" data-audio="hover-audio-ohh1" src="/app/assets/images/doormates/17.png"/>
+<audio id="hover-audio-ohh1" src="/app/assets/audio/doormates/ohh1.m4a"></audio>
+</div>
+</div>
+<script src="/app/js/helper-functions/helper-functions.js"></script><script src="/app/js/variables-global.js"></script><script src="/app/js/rooms/room.js"></script><script src="/app/js/doormates/doormates.js"></script><script src="/app/js/overlay-ui/overlay-ui.js"></script>
+</body>
+</html>

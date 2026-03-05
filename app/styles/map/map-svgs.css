@@ -1,0 +1,33 @@
+/* SVG elements on map */
+/* ------------------------ */
+
+.svg-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100%;
+  /* height: 100%; */
+
+  /* border: 2px solid red; */
+}
+
+.map-svg {
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke-width: 3px;
+  stroke: red;
+  opacity: 0;
+}
+
+.svg-clickable-element {
+  cursor: pointer;
+  fill: transparent;
+  stroke: blue;
+  stroke-width: 3px;
+}
+
+.svg-clickable-element.svg-clickable-element-main {
+  stroke: red;
+}

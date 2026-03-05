@@ -1,0 +1,94 @@
+.room-page-body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0; /* 初始隐藏 */
+  transition: opacity 1s ease-in-out; /* 淡入动画 */
+}
+
+.room-wrapper {
+  position: relative;
+  width: 100%;
+
+  margin: 0 auto;
+  aspect-ratio: 16 / 10; /* 保持比例 */
+  overflow: hidden;
+  transform-origin: top left;
+}
+
+/* 背景图铺满容器 */
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 门的位置用百分比定位，相对容器 */
+.door {
+  position: absolute;
+  top: 5%; /* 根据原始设计调整 */
+  left: -1%; /* 根据原始设计调整 */
+  width: 27%;
+  height: 86%;
+  transform-origin: 8% center;
+  transition: transform 1s ease-in-out;
+  z-index: 2;
+}
+
+.background-image {
+  position: relative;
+  display: block;
+  width: 53%;
+  left: 27%;
+  top: 9%;
+  height: auto;
+
+  z-index: 1;
+  transform: scale(1.2);
+}
+
+.image-overlay-container {
+  position: relative;
+  width: 100%;
+  top: 16%;
+  left: 5%;
+}
+
+/* 公共样式，保证图片在最上层 */
+.overlay-img {
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* 分别设定每张图片的位置和尺寸 */
+.grass1 {
+  left: 25%;
+  top: 90%;
+  width: 10%;
+}
+.grass2 {
+  left: 73%;
+  top: 82.5%;
+  width: 6%;
+}
+.cloud1 {
+  left: 44%;
+  top: -1%;
+  width: 15%;
+}
+.cloud2 {
+  left: 25.8%;
+  top: 5.3%;
+  width: 4%;
+}
+.cloud3 {
+  left: 75.5%;
+  top: 10%;
+  width: 10%;
+}

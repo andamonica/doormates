@@ -1,0 +1,137 @@
+.room-page-body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0; /* 初始隐藏 */
+  transition: opacity 1s ease-in-out; /* 淡入动画 */
+}
+
+.room-wrapper {
+  position: relative;
+  width: 100%;
+
+  margin: 0 auto;
+  aspect-ratio: 16 / 10; /* 保持比例 */
+  overflow: hidden;
+  transform-origin: top left;
+}
+
+/* 背景图铺满容器 */
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 门的位置用百分比定位，相对容器 */
+.door {
+  position: absolute;
+  top: 5%; /* 根据原始设计调整 */
+  left: -1%; /* 根据原始设计调整 */
+  width: 27%;
+  height: 86%;
+  transform-origin: 8% center;
+  transition: transform 1s ease-in-out;
+  z-index: 2;
+}
+/*.centered-image2 {
+  perspective: 1000px;
+}
+.centered-image2 img {
+  max-width: 42vw;
+  max-height: 98vh;
+}
+
+.rotate-tur2 {
+  position: absolute;
+  z-index: 1;
+  top: -490px; 
+  left: -715px; 
+
+  
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+  box-shadow: none !important;
+  transform: scale(10);
+}*/
+
+/* 新增的装饰scratch容器 */
+.scratch-container {
+  position: absolute;
+  width: 74%;
+  height: auto;
+  aspect-ratio: 1920 / 1080; /* 用你原图比例 */
+  top: 31%;
+  left: 28%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.scratch-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#scratch-canvas {
+  position: absolute;
+  top: 36%;
+  left: 21%;
+  z-index: 2;
+  width: 68%;
+  height: 36%;
+  cursor: grab;
+}
+
+.noodle {
+  width: 20%;
+  height: auto;
+  margin-top: 27%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+  position: absolute;
+  left: 15%;
+}
+
+.nase {
+  width: 20%;
+  height: auto;
+  margin-top: 13%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+  position: absolute;
+  left: 35%;
+}
+
+.pflanze3 {
+  width: 20%;
+  height: auto;
+  margin-top: 49%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+  position: absolute;
+  left: 35%;
+}

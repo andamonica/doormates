@@ -1,0 +1,99 @@
+.click-to-enter-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(255, 252, 194, 0.5);
+}
+
+/* Map image */
+/* ------------------------ */
+
+.map-container {
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  /* height: 100vh;
+  overflow: hidden; */
+  user-select: none;
+  display: flex;
+}
+
+.map-image {
+  width: 100vw;
+  height: auto;
+  /* max-width: none; */
+}
+
+/* Character */
+/* ------------------------ */
+
+.character-container {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  z-index: 1;
+
+  width: 100px;
+  height: auto;
+
+  transition: left 500ms, top 500ms;
+  /* background-color: lightgray;
+  border: 2px solid red; */
+  user-select: none;
+}
+
+.character-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Tooltips */
+/* ------------------------ */
+
+/* tooltip to show "go there" */
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "compagnon-light";
+  padding: 10px 12px;
+  background: white;
+  color: black;
+  font-size: 14px;
+  border: 0.25px solid black;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+  z-index: 999;
+}
+
+/* yellow-tree-interation */
+
+.pigeon {
+  position: absolute;
+  width: 60px;
+  left: 160px; /* 小鸟起始位置（树的位置） */
+  top: 380px;
+  opacity: 0;
+  transition: transform 2s ease-out, opacity 0.3s;
+}
+
+/* ✨ 鸽子飞行动画：向右上飞走 */
+@keyframes pigeonFly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(300px, -550px) rotate(20deg);
+  }
+}

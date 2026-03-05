@@ -1,0 +1,78 @@
+.room-page-body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  /* 初始隐藏 */
+  transition: opacity 1s ease-in-out;
+  /* 淡入动画 */
+}
+
+.room-wrapper {
+  position: relative;
+  width: 100%;
+
+  margin: 0 auto;
+  aspect-ratio: 16 / 10;
+  /* 保持比例 */
+  overflow: hidden;
+  transform-origin: top left;
+}
+
+/* 背景图铺满容器 */
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 门的位置用百分比定位，相对容器 */
+.door {
+  position: absolute;
+  top: 5%;
+  /* 根据原始设计调整 */
+  left: -1%;
+  /* 根据原始设计调整 */
+  width: 27%;
+  height: 86%;
+  transform-origin: 8% center;
+  transition: transform 1s ease-in-out;
+  z-index: 2;
+}
+
+.photo-container1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  z-index: 2;
+}
+
+.background-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.pupu-overlay-image {
+  position: absolute;
+
+  left: 50%;
+  /* 保证和background-image一样大且居中 */
+  width: 100%;
+
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: auto;
+}

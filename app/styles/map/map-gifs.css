@@ -1,0 +1,192 @@
+/* Gifs in map */
+/* ------------------------ */
+
+.map-gif,
+.map-png {
+  position: absolute;
+  z-index: 999;
+
+  top: var(--top);
+  left: var(--left);
+  width: var(--w);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.15s ease-out;
+
+  /* border: 3px solid violet; */
+}
+
+.light {
+  width: 17vh;
+  left: 102vh;
+  top: -1.5vh;
+  opacity: 0;
+}
+
+.pingpong-ball {
+  position: absolute;
+  top: 0;
+  width: 5vh;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 999;
+}
+
+.pigeon1 {
+  transition: transform 2s ease-out, opacity 0.3s;
+}
+
+.mouse {
+  position: absolute;
+  width: 12vh;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 999;
+
+  /* 初始位置 */
+  bottom: 20vh;
+  left: 70vh;
+
+  transition: opacity 0.2s ease-out;
+}
+
+.swing-gif {
+  position: absolute;
+  width: 20vh;
+  left: 0vh;
+  top: 74vh;
+  opacity: 0;
+  pointer-events: none; /* 鼠标事件穿透 GIF */
+}
+
+.duck {
+  position: absolute;
+  width: 6vh;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 999;
+
+  /* 初始位置 */
+  bottom: 10vh;
+  left: 20vh;
+
+  transition: opacity 0.2s ease-out;
+}
+
+/* —— animation for pingpong-ball —— */
+
+/* 向右抛弧线 */
+@keyframes arc-right {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5vh, -5vh);
+  }
+  100% {
+    transform: translate(10vh, 0);
+  }
+}
+
+/* 落桌子后向右轻弹 */
+@keyframes bounce-right {
+  0% {
+    transform: translate(10vh, 0);
+  }
+  40% {
+    transform: translate(12vh, -4vh);
+  }
+  100% {
+    transform: translate(13vh, 0);
+  }
+}
+
+/* 向左抛弧线 */
+@keyframes arc-left {
+  0% {
+    transform: translate(13vh, 0);
+  }
+  50% {
+    transform: translate(10vh, -5vh);
+  }
+  100% {
+    transform: translate(5vh, 0);
+  }
+}
+
+/* 落桌子后向左轻弹 */
+@keyframes bounce-left {
+  0% {
+    transform: translate(5vh, 0);
+  }
+  40% {
+    transform: translate(4vh, -4vh);
+  }
+  100% {
+    transform: translate(4vh, 0);
+  }
+}
+
+@keyframes runMouse {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  /* 第一段：向右上 45° 方向冲刺 */
+  25% {
+    transform: translate(18vh, -15vh);
+  }
+
+  /* 第二段：水平向右跑 & 加上轻微上下抖动 */
+  45% {
+    transform: translate(20vh, -15.5vh);
+  }
+  55% {
+    transform: translate(27vh, -14.5vh);
+  }
+  65% {
+    transform: translate(34vh, -15vh);
+  }
+  75% {
+    transform: translate(41vh, -15vh);
+  }
+
+  /* 第三段：往右跑离开画面 */
+  100% {
+    transform: translate(80vh, -14.5vh);
+  }
+}
+
+@keyframes duckSlideDown {
+  /* 0%：起点 */
+  0% {
+    bottom: 10vh;
+    left: 20vh;
+    transform: translate(0, 0);
+  }
+
+  /* 50%：滑到底部 */
+  50% {
+    bottom: 2vh;
+    left: 17vh;
+    transform: translate(0, 0);
+  }
+
+  /* 100%：往左跑走（带上下抖）*/
+  100% {
+    bottom: 2vh;
+    left: -5vh; /* 跑到画面外 */
+    transform: translate(0, -1vh); /* 上下跳动的尾位置 */
+  }
+}
+
+@keyframes pigeon1Fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(300px, -550px) rotate(20deg);
+  }
+}

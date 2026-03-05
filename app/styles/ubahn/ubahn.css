@@ -1,0 +1,335 @@
+/* Scroll container and scene wrapper */
+/* ------------------ */
+
+.ubahn-scroll-container {
+  position: relative;
+  width: auto;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: scroll;
+
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer and Edge */
+
+  /* WebKit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.ubahn-scroll-container.no-cursor {
+  cursor: none;
+}
+
+.ubahn-scene-wrapper {
+  position: relative;
+  width: max-content;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Rolltreppe */
+/* ------------------ */
+
+.img-rolltreppe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: auto;
+  /* 或 100vw，看你原来怎么用 */
+  max-width: none;
+  pointer-events: none;
+}
+
+.img-rolltreppe-front {
+  z-index: 3;
+}
+
+.img-rolltreppe-back {
+  z-index: 1;
+}
+
+/* U-Bahn train */
+/* ------------------ */
+
+.ubahn-train-container {
+  position: absolute;
+  bottom: 13vh;
+  left: 100%;
+  z-index: 0;
+
+  height: 70vh;
+  width: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* transition: transform 8s linear; */
+  will-change: transform;
+}
+
+.ubahn-train-video {
+  height: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* spray canvas 覆盖 */
+.ubahn-train-spray-canvas {
+  position: absolute;
+  left: 0;
+  height: 68%;
+  width: 100%;
+  pointer-events: auto;
+}
+
+/* Spray can */
+/* ------------------ */
+
+/* Spray can */
+.ubahn-spray-can {
+  position: absolute;
+  bottom: 5vh;
+  left: 150vh;
+  z-index: 3;
+  width: 40px;
+
+  transition: transform 0.3s ease;
+}
+
+.ubahn-spray-can:hover {
+  transform: scale(1.2);
+}
+
+/* Color picker */
+/* ------------------ */
+
+/* 换颜色 */
+.color-picker {
+  position: fixed;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  display: flex;
+  gap: 24px;
+
+  transition: opacity 0.3s ease;
+}
+
+.color-picker-colors-container,
+.color-picker-btns-container {
+  display: flex;
+  gap: 12px;
+}
+
+.color-picker.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.color-picker-color-field {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.color-picker-color-field.selected {
+  transform: scale(1.3);
+  /* 放大一点表示选中 */
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+.color-picker-stop-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: black;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+.color-picker-stop-btn svg {
+  width: 100%;
+  height: 100%;
+  stroke: white;
+  stroke-width: 1;
+}
+
+/* ---------- 新增：九宫格总 container ---------- */
+#big-container {
+  position: absolute;
+  top: 40vh;
+  left: 115vw;
+  width: 41vw;
+  height: 31vh;
+  z-index: -1;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 大背景图（占满整个 container） */
+#big-bg {
+  width: 106%;
+  height: 106%;
+  object-fit: cover;
+}
+
+/* 九宫格区 */
+#grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 7px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #6d4c41;
+  /* ← 你想要的棕色 */
+}
+
+/* 每个小格子 container */
+.cell {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* 格子中的图片（多张重叠） */
+.cell img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.cell img.active {
+  display: block;
+}
+
+/* laufen people */
+#laufen {
+  position: absolute;
+  top: 0vh;
+  /* 可调位置 */
+  right: -25%;
+  height: 35vh;
+  /* GIF 大小可调 */
+  width: auto;
+  z-index: 99999;
+  /* 顶层 */
+  pointer-events: none;
+  transform: translateX(0);
+}
+
+/* 🔸 time container */
+#time-container {
+  position: absolute;
+  top: 28vh;
+  left: 47vw;
+  /* 靠左 */
+  width: 12vw;
+  height: 4.5vh;
+  background: rgba(0, 0, 0, 0.6);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1vw;
+
+  color: white;
+  font-size: 1.5vh;
+  font-family: Arial, sans-serif;
+
+  z-index: 30;
+  /* 高于背景，但低于火车 */
+  pointer-events: none;
+  /* 不挡住背景滚动 */
+}
+
+/* 左边线路名 */
+#line-text {
+  color: orange;
+  font-weight: bold;
+}
+
+/* 右边时间 */
+#time-text {
+  font-weight: bold;
+}
+
+/* （可选）隐藏滚动条 — 在需要的浏览器里美观 */
+.background-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.background-container::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+}
+
+/*  时钟整体 */
+#clock {
+  position: absolute;
+  top: 11vh;
+  /* 👈 自由调整位置 */
+  left: -76vw;
+  width: 12vh;
+  height: 12vh;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid black;
+  z-index: 35;
+  transform: scale(0.6);
+}
+
+/* 指针通用 */
+#clock .hand {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: black;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 50%;
+  transform: rotate(0deg);
+}
+
+/* 时针 */
+#clock .hour {
+  width: 35%;
+  height: 3px;
+}
+
+/* 分针 */
+#clock .minute {
+  width: 45%;
+}
+
+/* 刻度容器 */
+#clock .ticks span {
+  position: absolute;
+  width: 2px;
+  height: 8%;
+  background: black;
+  top: 0;
+  left: 50%;
+  transform-origin: center 6vh;
+  transform: rotate(calc(var(--i) * 30deg)) translateX(-50%);
+}

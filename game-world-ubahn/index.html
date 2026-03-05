@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Doormates</title>
+  <link href="/app/styles/resets.css" rel="stylesheet" />
+  <link href="/app/styles/character-creator/character-creator.css" rel="stylesheet" />
+  <link href="/app/styles/typo.css" rel="stylesheet" />
+  <link href="/app/styles/btns.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/background-panel.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/doors.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/game-world.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/character.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/rooms.css" rel="stylesheet" />
+  <link href="/app/styles/doormates/doormates.css" rel="stylesheet" />
+  <link href="/app/styles/page-cover.css" rel="stylesheet" />
+  <link href="/app/styles/game-world/overlay-ui/overlay-ui.css" rel="stylesheet" />
+  <script src="/app/js/lib/gsap.min.js"></script>
+  <link href="/app/styles/game-world/ubahn/variables.css?v=0.0.0" rel="stylesheet" />
+  <link href="/app/styles/ubahn/ubahn.css" rel="stylesheet" />
+  <link href="/app/styles/ubahn/ubahn-background-panel.css" rel="stylesheet" />
+  <script src="/app/js/fabric.min.js"></script>
+  <script src="/app/js/js.cookie.min.js"></script>
+</head>
+
+<body class="game-world-ubahn-page">
+  <div class="overlay-ui" id="overlay-ui">
+    <div class="overlay-ui-btn-container overlay-ui-btn-container-top">
+      <button class="btn force-pointer-events" data-target="/map/index.html" id="btn-back-to-map">
+        Back to Map
+      </button>
+      <button class="btn force-pointer-events" data-target="/doormates/index.html" id="btn-restart-game">
+        Restart Game
+      </button>
+    </div>
+  </div>
+  <div class="page-cover">
+    <div class="font-compagnon-light" style="font-size: 5vw; text-align: center; ">
+      <span>
+        Get a bigger screen!
+      </span>
+    </div>
+  </div>
+  <main>
+    <div class="ubahn-scroll-container" data-scroll-x="0" id="game-world-scroll-container">
+      <div class="ubahn-scene-wrapper" id="scene-wrapper" style="width: unset;">
+        <div class="ubahn-bg-panel" id="bg-panel">
+          <img alt="Background image" class="ubahn-bg-img" id="bg-img"
+            src="/app/assets/images/ubahn/ubahn-station-background.jpg" />
+        </div><img alt="Back rolltreppe" class="img-rolltreppe img-rolltreppe-back"
+          src="/app/assets/images/ubahn/back-rolltreppe.png" />
+        <img alt="Front rolltreppe" class="img-rolltreppe img-rolltreppe-front"
+          src="/app/assets/images/ubahn/front-rolltreppe.png" />
+        <div class="ubahn-train-container" id="ubahn-train-container">
+          <video class="ubahn-train-video" id="ubahn-train-video" muted="" playsinline="" preload="auto"
+            src="/app/assets/videos/game-world/ubahn/ubahn12.30_3.mov">
+          </video>
+          <canvas class="ubahn-train-spray-canvas" id="ubahn-train-spray-canvas"></canvas>
+        </div>
+        <div class="ubahn-spray-can" id="ubahn-spray-can">
+          <img alt="spray-can" src="/app/assets/images/ubahn/spray-can.png" />
+        </div>
+        <div class="color-picker hidden" id="color-picker">
+          <div class="color-picker-colors-container">
+            <div class="color-picker-color-field selected" data-color="255,255,255" style="background:#fff"></div>
+            <div class="color-picker-color-field" data-color="255,0,0" style="background:#ff0000"></div>
+            <div class="color-picker-color-field" data-color="0,0,255" style="background:#0066ff"></div>
+            <div class="color-picker-color-field" data-color="0,0,0" style="background:#000"></div>
+            <div class="color-picker-color-field" data-color="255,255,0" style="background:#ffd500"></div>
+          </div>
+          <div class="color-picker-btns-container">
+            <button class="btn" id="color-picker-stop-btn">stop</button>
+            <button class="btn" id="color-picker-save-drawing-btn">save</button>
+          </div>
+        </div><audio id="spraySound" loop="" src="/app/assets/audio/ubahn/spray2.m4a"></audio>
+        <audio id="cellClickSound" preload="auto" src="/app/assets/audio/ubahn/mouse-click.mp3"></audio>
+        <div id="big-container">
+          <div id="grid">
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/cloud.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/horse1.jpg">
+              <img src="/app/assets/images/ubahn/poster/dinosaur.jpg">
+            </div>
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/snail.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/castle.jpg">
+              <img src="/app/assets/images/ubahn/poster/horse2.jpg">
+            </div>
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/elephant-top.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/toilette.jpg">
+              <img src="/app/assets/images/ubahn/poster/horse3.jpg">
+            </div>
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/hand.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/horse4.jpg">
+              <img src="/app/assets/images/ubahn/poster/stupid.jpg">
+            </div>
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/horse5.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/blanket.jpg">
+              <img src="/app/assets/images/ubahn/poster/sofa5.jpg">
+            </div>
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/elephant-down.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/horse6.jpg">
+              <img src="/app/assets/images/ubahn/poster/sofa6.jpg">
+            </div>
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/lake.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/mushroom.jpg">
+              <img src="/app/assets/images/ubahn/poster/horse7.jpg">
+            </div>
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/skateboard.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/sofa8.jpg">
+              <img src="/app/assets/images/ubahn/poster/horse8.jpg">
+            </div>
+            <div class="cell">
+              <img src="/app/assets/images/ubahn/poster/leaves.jpg" class="active">
+              <img src="/app/assets/images/ubahn/poster/sofa9.jpg">
+              <img src="/app/assets/images/ubahn/poster/horse9.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="character character-size-lg" id="character">
+          <img alt="character image here" src="" />
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="/app/js/helper-functions/helper-functions.js"></script>
+  <script src="/app/js/variables-global.js"></script>
+  <script src="/app/js/rooms/room.js"></script>
+  <script src="/app/js/doormates/doormates.js"></script>
+  <script src="/app/js/overlay-ui/overlay-ui.js"></script>
+  <script src="/app/js/ubahn/ubahn-variables.js"></script>
+  <script src="/app/js/ubahn/ubahn-scene-setup.js"></script>
+  <script src="/app/js/ubahn/ubahn-train.js"></script>
+  <script src="/app/js/ubahn/ubahn.js"></script>
+  <script src="/app/js/ubahn/ubahn-character.js"></script>
+</body>
+
+</html>
