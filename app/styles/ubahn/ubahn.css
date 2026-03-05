@@ -59,7 +59,7 @@
   position: absolute;
   bottom: 13vh;
   left: 100%;
-  z-index: 0;
+  z-index: 2;
 
   height: 70vh;
   width: auto;
@@ -167,12 +167,27 @@
 /* ---------- 新增：九宫格总 container ---------- */
 #big-container {
   position: absolute;
-  top: 40vh;
-  left: 115vw;
-  width: 41vw;
-  height: 31vh;
-  z-index: -1;
-  border: 3px solid rgba(255, 255, 255, 0.5);
+  /* 调整如下参数以在背景图红框中精确定位：*/
+  top: 11vh;
+  /* 红框的距离顶部的相对高度 */
+  left: 177.5vh;
+  /* 红框距离左侧的相对距离（背景总长的大约一半处） */
+  width: 72.5vh;
+  /* 红框的相对宽度 */
+  height: 38.5vh;
+  /* 红框的相对高度 */
+  z-index: 1;
+  /* border可以去掉或保留调试 */
+  border: 4px solid red;
+  background: rgba(255, 0, 0, 0.4);
+  opacity: 1;
+  /* pointer-events: none; */
+  /* transition: opacity 0.5s ease; */
+}
+
+#big-container.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* 大背景图（占满整个 container） */

@@ -28,7 +28,7 @@ window.addEventListener("resize", resizeCanvas);
 
 // 加载上层图像（遮盖层）
 const overlayImg = new Image();
-overlayImg.src = "/app/assets/images/feuchtigkeit-room/gray.png"; // 你想擦除的那一张
+overlayImg.src = "../app/assets/images/feuchtigkeit-room/gray.png"; // 你想擦除的那一张
 overlayImg.onload = () => {
   drawctx.drawImage(
     overlayImg,
@@ -70,6 +70,6 @@ function openDoor() {
 
   // 1秒动画后 + 等0.5秒再跳转
   setTimeout(() => {
-    window.location.href = "./game-world/";
+    window.location.href = "/game-world/index.html";
   }, 1500);
 }

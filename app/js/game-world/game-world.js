@@ -19,10 +19,13 @@ try {
     if (data.image) {
       characterImg.src = "data:image/png;base64," + data.image;
     } else {
-      characterImg.src = "default-character.png"; // Fallback
+      characterImg.src = "../app/assets/images/doormates/7.png"; // Fallback
     }
   } else {
-    console.log("No local character data found.");
+    console.log("No local character data found, using default.");
+    if (characterImg && !characterImg.src.includes('data:image')) {
+      characterImg.src = "../app/assets/images/doormates/7.png";
+    }
   }
 } catch (error) {
   console.error("Error loading character data locally:", error);
@@ -46,6 +49,7 @@ function updatePosition() {
   scrollX = Math.max(0, scrollX);
   bgPanel.scrollLeft = scrollX;
 
+  if (!character) return;
   const characterRect = character.getBoundingClientRect();
   let isColliding = false;
   let targetDoor = null;
@@ -395,7 +399,7 @@ document.addEventListener("keydown", (e) => {
 
   if (
     (e.code === "ArrowLeft" || e.code === "ArrowRight") &&
-    !character.classList.contains("walking")
+    character && !character.classList.contains("walking")
   ) {
     character.classList.add("walking");
   }
@@ -405,7 +409,7 @@ document.addEventListener("keyup", (e) => {
   if (e.code === "ArrowLeft") movingLeft = false;
   if (e.code === "ArrowRight") movingRight = false;
 
-  if (!movingLeft && !movingRight) {
+  if (!movingLeft && !movingRight && character) {
     character.classList.remove("walking");
   }
 });

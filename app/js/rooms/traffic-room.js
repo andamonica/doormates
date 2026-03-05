@@ -38,6 +38,6 @@ function openDoor() {
 
   // 1秒动画后 + 等0.5秒再跳转
   setTimeout(() => {
-    window.location.href = "./game-world/";
+    window.location.href = "/game-world/index.html";
   }, 1500);
 }

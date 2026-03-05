@@ -1,6 +1,3 @@
 Local backend server running at http://localhost:8000
 - Base directory served statically: /Users/wwyz/Desktop/monika_05_03_Code/door-mates-website
 - Database path: /Users/wwyz/Desktop/monika_05_03_Code/door-mates-website/characters.json
-[API] Created character 999 with ID char_1772714248556
-[API] Fetched character ID char_1772714248556
-Bad JSON received: "[object Object]" is not valid JSON

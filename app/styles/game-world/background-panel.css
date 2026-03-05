@@ -1,30 +1,98 @@
 .bg-panel {
   position: fixed;
-  width: 100vw;
+
+  min-width: 100vw;
+  max-width: 100vw;
   height: 100vh;
   overflow-x: auto;
   overflow-y: auto;
 }
+
 .bg-panel-wrapper {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
+
 /* 背景图层，放置在每个 section 内 */
 .section-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 400px; /* 背景图高度，根据需要调整 */
+  height: 400px;
+  /* 背景图高度，根据需要调整 */
   background-image: url("images/canopy.png");
   background-repeat: repeat-x;
   background-position: top center;
   background-size: 80% 500px;
   z-index: 0;
   pointer-events: none;
+}
+
+.bg-panel-section {
+  position: relative;
+  width: 60vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: visible;
+  margin-left: 80px;
+}
+
+/*.bg-panel-section {
+  position: relative;
+  width: 40vw;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: visible;
+}*/
+
+/*.bg-panel-door-frame {
+  position: absolute;
+  width: 355px;
+  height: 750px;
+  left: 22%;
+  top: 18%;
+} */
+
+.bg-panel-door-frame {
+  position: absolute;
+  width: 45%;
+  height: auto;
+  left: 18%;
+  top: 22%;
+}
+
+/*.bg-panel-door {
+  width: 300px;
+  height: 700px;
+  z-index: 11111;
+}*/
+.bg-panel-door {
+  width: 100%;
+  height: auto;
+  position: relative;
+  /* 必须设置 position 才能生效 z-index */
+  z-index: 2;
+  /* 门在上 */
+}
+
+#door-image {
+  transform-origin: right center;
+  /* 左侧为轴心 */
+  transform-style: preserve-3d;
+  /* 开启3D效果 */
+  transition: transform 1s ease-in-out;
+  /* 添加动画过渡 */
+  transform: rotateY(0deg);
+  /* 默认关闭 */
 }
 
 .open-door-button,
@@ -46,7 +114,8 @@
   cursor: pointer;
   z-index: 1113;
   border: 0.9px solid black;
-  display: none; /* 默认隐藏 */
+  display: none;
+  /* 默认隐藏 */
 }
 
 .open-door-button:hover,
@@ -57,40 +126,108 @@
   background-color: #c9ded7;
 }
 
+/*.door-container {
+  position: absolute;
+  left: 25.5%;
+  width: 300px;
+  height: 700px;
+  overflow: visible;
+  perspective: 1000px; /* 控制透视距离，越小越夸张
+  top: 20%;
+} */
+
+.door-container {
+  position: absolute;
+  width: 39%;
+  left: 21%;
+  top: 24%;
+  overflow: visible;
+  z-index: 10;
+  /* 父容器整体层级 */
+}
+
 .door-container.isOpening .thumbnail-wrapper {
   opacity: 0;
 }
 
-/* 门上的人头*/
+/* 门上的人头，响应式 */
 .door-overlay-image {
   position: absolute;
-  top: 105px;
-  left: 100px;
-  width: 100px;
+  top: 10%;
+  /* 相对于 door-container 的高度 */
+  left: 30%;
+  /* 相对于 door-container 的宽度 */
+  width: 30%;
+  /* 相对于 door-container 的宽度，自适应缩放 */
   height: auto;
+  /* 保持纵横比 */
   opacity: 0;
   transform: translateY(0);
-  transition: transform 1s ease, opacity 0.01s ease;
+  transition:
+    transform 1s ease,
+    opacity 0.3s ease;
+  /* 延长 opacity 便于动画 */
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
+}
+
+/* 单独调节尺寸和位置 */
+.overlay-leute1 {
+  top: 11%;
+  left: 34%;
+  width: 35%;
+}
+
+.overlay-leute2 {
+  top: 11%;
+  left: 34%;
+  width: 35%;
+}
+
+.overlay-leute3 {
+  top: 8%;
+  left: 36%;
+  width: 35%;
+}
+
+.overlay-leute4 {
+  top: 11%;
+  left: 34%;
+  width: 35%;
+}
+
+.overlay-leute5 {
+  top: 11%;
+  left: 34%;
+  width: 35%;
+}
+
+.overlay-leute6 {
+  top: 11%;
+  left: 34%;
+  width: 35%;
 }
 
 /* 画框和画 */
 .side-frame1 {
   position: absolute;
-  left: 400px; /* 根据实际需求调整位置 */
+  left: 400px;
+  /* 根据实际需求调整位置 */
   top: -20px;
   z-index: 1;
-  width: 170px; /* 根据实际需求调整大小 */
+  width: 170px;
+  /* 根据实际需求调整大小 */
 }
 
 .side-klo {
   position: absolute;
-  left: 420px; /* 与frame相同或微调 */
+  left: 420px;
+  /* 与frame相同或微调 */
   top: 20px;
   z-index: 2;
   width: 120px;
-  pointer-events: none; /* 如不需交互可加 */
+  pointer-events: none;
+  /* 如不需交互可加 */
 }
 
 /* 新增的装饰photo容器1 */
@@ -111,9 +248,11 @@
   max-width: 100%;
   max-height: 100%;
 
-  object-fit: contain; /* 等比例缩放 */
+  object-fit: contain;
+  /* 等比例缩放 */
 }
-.photo-container1 .overlay-image {
+
+.photo-container1 .pupu-overlay-image {
   position: absolute;
   width: 200px;
   height: auto;
@@ -122,6 +261,7 @@
   transform: translate(-40%, -50%);
   cursor: pointer;
 }
+
 /* 第5个门，给grass1*/
 .photo-container1 .overlay-image5-1 {
   position: absolute;
@@ -132,6 +272,7 @@
 
   cursor: pointer;
 }
+
 /* 第5个门，给grass2*/
 .photo-container1 .overlay-image5-2 {
   position: absolute;
@@ -142,6 +283,7 @@
 
   cursor: pointer;
 }
+
 /* 第5个门，给grass2*/
 .photo-container1 .overlay-image5-3 {
   position: absolute;
@@ -152,6 +294,7 @@
 
   cursor: pointer;
 }
+
 /* 新增的装饰photo容器4 */
 .photo-container4 {
   width: 800px;
@@ -165,22 +308,26 @@
   position: absolute;
   left: 530px;
 }
+
 .photo-container4 .background-image {
   max-width: 100%;
   max-height: 100%;
 
   object-fit: contain;
 }
+
 /* 输入数字6 */
 .answer-box {
   position: absolute;
-  top: 40px; /* 控制回答板位置 */
+  top: 40px;
+  /* 控制回答板位置 */
   left: 415px;
 
   padding: 2px;
 
   border-radius: 8px;
-  width: 150px; /* 👈 设置宽度 */
+  width: 150px;
+  /* 👈 设置宽度 */
   height: 100px;
 }
 
@@ -204,6 +351,7 @@
   justify-content: center;
   align-items: center;
 }
+
 /* 新增的装饰scratch容器 */
 .scratch-container {
   width: auto;
@@ -246,6 +394,7 @@
   z-index: 0;
   opacity: 0;
 }
+
 .marquee-box1 {
   width: 100vw;
   overflow: hidden;
@@ -272,11 +421,13 @@
   height: 0;
   border-top: 80px solid #fdf4eb;
 
-  border-right: 80px solid transparent; /* 宽度：从左边延伸出去 */
+  border-right: 80px solid transparent;
+  /* 宽度：从左边延伸出去 */
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10; /* 确保显示在前面 */
+  z-index: 10;
+  /* 确保显示在前面 */
 }
 
 .triangle-corner::after {
@@ -284,7 +435,8 @@
   position: absolute;
   top: -2px;
   left: 1px;
-  width: 112px; /* ≈ 80 * √2 */
+  width: 112px;
+  /* ≈ 80 * √2 */
   height: 0;
   border-top: 1px solid black;
   transform: rotate(-45deg);
@@ -340,12 +492,12 @@ blockquote.bubble {
 }
 
 blockquote.speech {
-  background: url("/app/assets/images/game-world/speech-bubble.svg") no-repeat
-    center;
+  background: url("/app/assets/images/game-world/speech-bubble.svg") no-repeat center;
   width: 25%;
   padding-top: 6%;
   padding-bottom: 20%;
 }
+
 /*  add answer button */
 .bubble-answer {
   position: absolute;
@@ -364,6 +516,7 @@ blockquote.speech {
   z-index: 1111;
   border: 0.9px solid black;
 }
+
 .bubble-answer:hover {
   background-color: #c9ded7;
 }
@@ -386,6 +539,7 @@ blockquote.speech {
   z-index: 1111;
   border: 0.9px solid black;
 }
+
 .bubble-why:hover {
   background-color: #c9ded7;
 }
@@ -400,12 +554,12 @@ blockquote.speech {
   background: white;
   border: 0.9px solid black;
 
-  transform: translateX(-10px);
+  transform: translateX(200px);
 }
 
 #right-panel {
   width: 40%;
-  margin-left: 800px;
+  margin-left: 35%;
   transform: translateY(230px);
 
   display: flex;
@@ -445,6 +599,7 @@ blockquote.speech {
   align-items: center;
   gap: 5px;
 }
+
 /*andere*/
 
 /* 缩略图容器 */
@@ -452,6 +607,7 @@ blockquote.speech {
   position: absolute;
   width: 150px;
   height: 70px;
+  z-index: 1111;
 }
 
 /* 缩略图本体 */
@@ -482,10 +638,12 @@ blockquote.speech {
 
 /* tur6*/
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }
@@ -493,6 +651,43 @@ blockquote.speech {
 
 .bounce-on-hover img:hover {
   animation: bounce 0.5s ease;
+}
+
+/* Picture on wall */
+/* /////////////// */
+
+/* .picture-wrapper {
+  position: absolute;
+  left: 62%;
+  top: 20%;
+  z-index: 1;
+}*/
+
+.picture-wrapper {
+  position: absolute;
+  width: 25%;
+  left: 85%;
+  top: 20%;
+}
+
+/* 画框和画 
+.picture-frame {
+  width: 170px; /* 根据实际需求调整大小 
+}*/
+
+.picture-frame {
+  width: 100%;
+}
+
+.picture-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 120px;
+  pointer-events: none;
+  /* 如不需交互可加 */
 }
 
 /* Background elements (floor, walls, etc.) */
@@ -512,35 +707,43 @@ blockquote.speech {
   align-items: center;
 
   /* 新增：交替的蓝灰竖条背景 */
-  background-image: 
-    /* 蓝色竖条 */ repeating-linear-gradient(
-      90deg,
+  background-image:
+    /* 蓝色竖条 */
+    repeating-linear-gradient(90deg,
       transparent 0px,
       transparent 60px,
       #d3edff 60px,
-      /* 蓝色 */ #d3edff 120px
-    ),
+      /* 蓝色 */
+      #d3edff 120px),
     /* 灰色竖条 */
-      repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        transparent 60px,
-        #bcc1d9 60px,
-        /* 原灰色 */ #bcc1d9 120px
-      ),
+    repeating-linear-gradient(90deg,
+      transparent 0px,
+      transparent 60px,
+      #bcc1d9 60px,
+      /* 原灰色 */
+      #bcc1d9 120px),
     /* 黑色垂直线 */
-      repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        transparent 59px,
-        black 59px,
-        black 60px
-      );
+    repeating-linear-gradient(90deg,
+      transparent 0px,
+      transparent 59px,
+      black 59px,
+      black 60px);
 
   /* 背景尺寸设置 */
-  background-size: 120px 10vh, /* 蓝色条尺寸 */ 60px 10vh,
-    /* 灰色条尺寸 */ 60px 10vh; /* 黑线尺寸 */
-  background-position: 0 0, /* 蓝色条位置 */ 60px 0, /* 灰色条位置 */ 0 0; /* 黑线位置 */
+  background-size:
+    120px 10vh,
+    /* 蓝色条尺寸 */
+    60px 10vh,
+    /* 灰色条尺寸 */
+    60px 10vh;
+  /* 黑线尺寸 */
+  background-position:
+    0 0,
+    /* 蓝色条位置 */
+    60px 0,
+    /* 灰色条位置 */
+    0 0;
+  /* 黑线位置 */
   background-repeat: repeat;
 }
 
@@ -551,15 +754,13 @@ blockquote.speech {
   left: 0;
   width: 100%;
   height: 30px;
-  background-image: repeating-radial-gradient(
-    circle at center top,
-    #fde2d6 0px,
-    #fde2d6 29.2px,
-    black 29.2px,
-    black 30px,
-    transparent 30px,
-    transparent 60px
-  );
+  background-image: repeating-radial-gradient(circle at center top,
+      #fde2d6 0px,
+      #fde2d6 29.2px,
+      black 29.2px,
+      black 30px,
+      transparent 30px,
+      transparent 60px);
   background-size: 60px 30px;
   background-repeat: repeat-x;
   z-index: 2;
@@ -568,17 +769,16 @@ blockquote.speech {
 .roof::before {
   content: "";
   position: absolute;
-  top: calc(102% + 30px); /* 半圆底部正下方 */
+  top: calc(102% + 30px);
+  /* 半圆底部正下方 */
   left: 0;
   width: 100%;
   height: 10px;
-  background-image: repeating-radial-gradient(
-    circle,
-    #ca847f 0px,
-    #ca847f 4px,
-    transparent 4px,
-    transparent 60px
-  );
+  background-image: repeating-radial-gradient(circle,
+      #ca847f 0px,
+      #ca847f 4px,
+      transparent 4px,
+      transparent 60px);
   background-size: 60px 10px;
   background-repeat: repeat-x;
   z-index: 2;
@@ -591,27 +791,71 @@ blockquote.speech {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 111111;
 
   overflow: hidden;
   display: flex;
   align-items: center;
 
   background-image:
-    /* 水平线（X轴） */ linear-gradient(
-      to bottom,
-      #9ba489 1px,
-      transparent 1px
-    ),
+    /* 水平线（X轴） */
+    linear-gradient(to bottom, #9ba489 1px, transparent 1px),
     /* 斜线（模拟 Y轴）向左倾斜45度 */
-      linear-gradient(to left, #9ba489 1px, transparent 1px);
+    linear-gradient(to left, #9ba489 1px, transparent 1px);
   background-size: 50px 50px;
   background-repeat: repeat;
 }
 
+.yellow-wall {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fffcc4;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -4;
+  border-top: 0.5px solid black;
+}
+
+.lower-wall {
+  position: fixed;
+  bottom: 20vh;
+  left: 0;
+  z-index: -1;
+
+  width: 100vw;
+  height: 15vh;
+
+  border-top: 1px solid black;
+  background-color: #edd3c6;
+
+  /* 棕色横线，每5vh一条（共3条） */
+  background-image: repeating-linear-gradient(to bottom,
+      transparent,
+      transparent calc(4vh - 1px),
+      #8b5c2a calc(4vh - 1px),
+      #8b5c2a 4vh);
+  background-size: 100vw 15vh;
+  background-repeat: no-repeat;
+}
+
+.green-plank {
+  position: fixed;
+  width: 100vw;
+  height: 1.5vh;
+  background-color: #e1e7ad;
+  bottom: 35vh;
+  left: 0;
+  z-index: -1;
+  border-top: 1px solid black;
+}
+
 .falling-stone-0 {
   position: absolute;
-  top: -200px; /* 起始位置在屏幕上方 */
-  left: -40%; /* 居中（你可以改为特定位置） */
+  top: -200px;
+  /* 起始位置在屏幕上方 */
+  left: -40%;
+  /* 居中（你可以改为特定位置） */
   transform: translateX(-50%);
   width: 350px;
   height: auto;
@@ -632,15 +876,17 @@ blockquote.speech {
   }
 
   100% {
-    top: 70vh;
+    top: 55vh;
     opacity: 1;
   }
 }
 
 .falling-stone-1 {
   position: absolute;
-  top: -250px; /* 起始位置在屏幕上方 */
-  left: -20%; /* 居中（你可以改为特定位置） */
+  top: -250px;
+  /* 起始位置在屏幕上方 */
+  left: -20%;
+  /* 居中（你可以改为特定位置） */
   transform: translateX(-50%);
   width: 350px;
   height: auto;
@@ -661,15 +907,17 @@ blockquote.speech {
   }
 
   100% {
-    top: 70vh;
+    top: 55vh;
     opacity: 1;
   }
 }
 
 .falling-stone-2 {
   position: absolute;
-  top: -250px; /* 起始位置在屏幕上方 */
-  left: -24%; /* 居中（你可以改为特定位置） */
+  top: -250px;
+  /* 起始位置在屏幕上方 */
+  left: -24%;
+  /* 居中（你可以改为特定位置） */
   transform: translateX(-50%);
   width: 350px;
   height: auto;
@@ -690,7 +938,7 @@ blockquote.speech {
   }
 
   100% {
-    top: 50vh;
+    top: 35vh;
     opacity: 1;
   }
 }

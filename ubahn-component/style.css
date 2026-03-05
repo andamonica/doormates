@@ -1,0 +1,59 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/*九宫格总 container */
+#big-container {
+  position: relative;
+  width: 95vw;
+  max-width: 1000px; 
+  aspect-ratio: 2.35; /* Based on 41vw/31vh on 16:9 screen */
+  background-color: #6d4c41; /* 棕色框架 */
+  border: 4px solid #6d4c41; /* Thicker border to match frame */
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: auto;
+}
+
+/* 九宫格区 */
+#grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 6px; /* Adjusted gap */
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+/* 每个小格子 container */
+.cell {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* 格子中的图片 */
+.cell img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Use fill to or match exactly if possible */
+  display: none;
+}
+
+.cell img.active {
+  display: block;
+}
+

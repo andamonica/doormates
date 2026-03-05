@@ -92,6 +92,35 @@ if (typeof character === "undefined") {
     } else if (direction === "right") {
       gsap.set(character, { scaleX: 1 }); // Face right (normal)
     }
+
+    // 检测角色是否进入拼图触发区域
+    checkPuzzleTrigger();
+  }
+
+  //////////// Puzzle trigger detection ////////////
+  //////////////////////////////////////////////////
+
+  function checkPuzzleTrigger() {
+    const bigContainer = document.getElementById("big-container");
+    if (!bigContainer) return;
+
+    // 计算角色的绝对位置（角色位置 + 滚动偏移）
+    const scrollX = parseInt(scrollContainer.getAttribute("data-scroll-x") || "0", 10);
+    const absPosition = movementState.currentPosition + scrollX;
+
+    // 获取当前视口高度（由于背景高度是 100vh，以此作为恒定位移标尺）
+    const vh = window.innerHeight / 100;
+
+    // 拼图位于 left: 177.5vh 处
+    // 角色走到 100vh 到 200vh 的范围时触发显示
+    const triggerStart = 100 * vh;
+    const triggerEnd = 240 * vh;
+
+    if (absPosition >= triggerStart && absPosition <= triggerEnd) {
+      bigContainer.classList.add("visible");
+    } else {
+      bigContainer.classList.remove("visible");
+    }
   }
 
   /////////// Key press event handling ///////////
