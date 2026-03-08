@@ -9,6 +9,12 @@ if (typeof character === "undefined") {
 
   const scrollContainer = document.getElementById("game-world-scroll-container");
 
+  // Escalator entrance animation
+  gsap.fromTo(character, 
+    { x: -150, y: -250, opacity: 0 }, 
+    { x: 0, y: 0, opacity: 1, duration: 2.5, ease: "power1.out" }
+  );
+
   ////////////////////////// Character movement //////////////////////////
   ////////////////////////////////////////////////////////////////////////
 

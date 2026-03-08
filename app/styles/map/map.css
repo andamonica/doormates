@@ -55,6 +55,10 @@
   height: auto;
 }
 
+.map-page .character {
+  width: 120px !important;
+}
+
 /* Tooltips */
 /* ------------------------ */
 

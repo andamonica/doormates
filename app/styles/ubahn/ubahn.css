@@ -77,6 +77,7 @@
   display: block;
   user-select: none;
   pointer-events: none;
+  filter: url(#black-key);
 }
 
 /* spray canvas 覆盖 */
