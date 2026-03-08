@@ -222,6 +222,15 @@
   text-align: center;
   box-sizing: border-box;
   background-color: #fffcc2;
+  font-family: inherit;
+  color: #000;
+  cursor: text;
+}
+
+#characterNameInput:hover, 
+#characterNameInput:focus {
+  background-color: #fffcc2;
+  color: #000;
 }
 
 .character-viewer-controls .notification-display {

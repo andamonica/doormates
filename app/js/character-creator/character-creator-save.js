@@ -84,7 +84,7 @@ function saveCharacter(canvas, characterName) {
 
 
     // Send POST request to Kirby backend
-    fetch("api.character.create", {
+    fetch("/api.character.create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
