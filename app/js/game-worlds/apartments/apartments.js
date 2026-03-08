@@ -8,7 +8,7 @@ const characterId = Cookies.get("characterId");
 console.log("Character ID from cookie:", characterId);
 
 // Get character data from API
-const characterData = fetch("api.character.get", {
+const characterData = fetch("/api.character.get", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ characterId: characterId }),

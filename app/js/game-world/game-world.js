@@ -7,29 +7,31 @@ console.log("game-world.js loaded");
 const characterId = Cookies.get("characterId");
 console.log("Character ID from cookie:", characterId);
 
-// Get character data from localStorage
-try {
-  const localDataStr = localStorage.getItem("characterData");
-  const characterImg = document.querySelector("#character img");
-
-  if (localDataStr) {
-    const data = JSON.parse(localDataStr);
-    console.log("Character data loaded locally:", data);
-    // data.image carries the base64 part
-    if (data.image) {
-      characterImg.src = "data:image/png;base64," + data.image;
-    } else {
-      characterImg.src = "/app/assets/images/doormates/7.png"; // Fallback
+// Get character data from API
+const characterData = fetch("/api.character.get", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ characterId: characterId }),
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to fetch character data");
     }
-  } else {
-    console.log("No local character data found, using default.");
+    return response.json();
+  })
+  .then((data) => {
+    console.log("Character data:", data);
+    // Set character image and name
+    const characterImg = document.querySelector("#character img");
+    characterImg.src = data.characterImgUrl || "/app/assets/images/doormates/7.png"; // Fallback image
+  })
+  .catch((error) => {
+    console.error("Error fetching character data:", error);
+    const characterImg = document.querySelector("#character img");
     if (characterImg && !characterImg.src.includes('data:image')) {
       characterImg.src = "/app/assets/images/doormates/7.png";
     }
-  }
-} catch (error) {
-  console.error("Error loading character data locally:", error);
-}
+  });
 
 const character = document.getElementById("character");
 const bgPanel = document.getElementById("world-bg");
