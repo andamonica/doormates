@@ -215,8 +215,8 @@
   text-align: center;
 }
 
-.character-name-input {
-  border: 1px solid #ccc;
+#characterNameInput {
+  border: 0.5px solid plum;
   padding: 1rem;
   width: 100%;
   text-align: center;
