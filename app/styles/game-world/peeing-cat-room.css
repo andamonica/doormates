@@ -1,26 +1,19 @@
 .room-page-body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  opacity: 0; /* 初始隐藏 */
-  transition: opacity 1s ease-in-out; /* 淡入动画 */
-}
-
-/* Ensure the wrapper fills the screen and acts as a relative container */
-.wrapper-page {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  opacity: 0;
+  /* 初始隐藏 */
+  transition: opacity 1s ease-in-out;
+  /* 淡入动画 */
 }
 
 .room-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
-  aspect-ratio: 16 / 10; /* 保持比例 */
   overflow: hidden;
   transform-origin: top left;
 }
@@ -30,6 +23,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 40%;
   position: absolute;
   top: 0;
   left: 0;
@@ -42,7 +36,8 @@
   left: -0.5%;
   width: 25.6%;
   height: auto;
-  z-index: 111115; /* 保证不被其他背景图遮住 */
+  z-index: 111115;
+  /* 保证不被其他背景图遮住 */
   perspective: 1000px;
   transform: translateY(7%);
 }
@@ -50,86 +45,95 @@
 /* 门的位置用百分比定位，相对容器 */
 .door {
   position: absolute;
-  top: 5%; /* 根据原始设计调整 */
-  left: -1%; /* 根据原始设计调整 */
+  top: 5%;
+  /* 根据原始设计调整 */
+  left: -1%;
+  /* 根据原始设计调整 */
   width: 27%;
   height: 86%;
   transform-origin: 8% center;
   transition: transform 1s ease-in-out;
-  z-index: 2;
+  z-index: 50;
 }
 
 .content-layer {
   position: absolute;
-  margin-top: 25%;
+  top: 0;
+  left: 0;
+  margin: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* video 与 klo 图片所在层 */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2vw;
+  z-index: 10;
+  padding: 0;
 }
 
 .left-video {
   position: absolute;
-  width: 30%;
+  width: 32%;
   z-index: 11;
-  left: 15%;
-  top: -20%; /* 往左移 */
+  left: 18%;
+  top: 20%;
+  margin: 0;
 }
 
 .right-image {
   position: absolute;
-  width: 60vw;
-  right: -5vw; /* 往左移 */
-  bottom: 45vw;
+  width: 42%;
+  right: 3%;
+  top: 13.5%;
+  margin: 0;
+  bottom: auto;
 }
 
 .overlay-image {
   position: absolute;
-  z-index: 12; /* duck 图层在 klo 图上面 */
-  width: 10%; /* 你可以调 4%~8% */
+  z-index: 12;
+  width: 10%;
   height: auto;
+  margin: 0;
 }
 
 /* 公共 bounce 动画 */
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
-    transform: translateY(-10px); /* 跳动幅度可调整 */
+    transform: translateY(-10px);
   }
 }
 
 /* 所有 duck 图统一 hover 动画 */
 .overlay-image:hover {
-  position: absolute;
   animation: bounce 0.5s ease-in-out;
-  width: 10%; /* 你可以调 4%~8% */
+  width: 10%;
   height: auto;
 }
 
 /* 自定义每个 duck 的位置 */
 .bounce-on-hover1 {
-  position: absolute;
-  top: 38%;
-  right: 40.5%;
+  top: 30%;
+  right: 33.5%;
+  margin: 0;
 }
+
 .bounce-on-hover2 {
-  position: absolute;
-  top: 41%;
-  right: 27%;
+  top: 33%;
+  right: 23.5%;
+  margin: 0;
 }
+
 .bounce-on-hover3 {
-  position: absolute;
-  top: 39%;
-  right: 14%;
+  top: 32%;
+  right: 14.5%;
+  margin: 0;
 }
+
 .bounce-on-hover4 {
-  position: absolute;
-  top: 39%;
-  right: 1.5%;
+  top: 32%;
+  right: 6.5%;
+  margin: 0;
 }

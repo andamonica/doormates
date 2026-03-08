@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"D:\\\\1. Workflow\\\\1. Projects\\\\2026-3-8, Project, St. Monica\\\\doormates\\\\game-world\"\" 2>/dev/null || echo \"Directory not found \")",
+      "Bash(dir:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)",
+      "Bash(identify:*)"
+    ]
+  }
+}
