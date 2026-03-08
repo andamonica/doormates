@@ -4,3 +4,6 @@ node_modules/
 characters.json
 ubahn-illus.json
 door-illus.json
+server.log
+start.sh
+stop.sh
