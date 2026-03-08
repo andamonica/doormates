@@ -81,30 +81,7 @@ function saveCharacter(canvas, characterName) {
       timestamp: new Date().toISOString(),
     };
 
-    // LOCAL STUB: If running on localhost, simulate a successful save
-    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-      console.log("%c[Local Stub] Simulating successful character save...", "color: #2ecc71; font-weight: bold;");
-      
-      // Save image to localStorage for other pages to access
-      try {
-        localStorage.setItem("localCharacterImg", "data:image/png;base64," + base64Image);
-        console.log("Character image saved to localStorage.");
-      } catch (e) {
-        console.warn("Failed to save image to localStorage (likely size quota exceeded):", e);
-      }
 
-      setTimeout(() => {
-        const mockData = {
-          status: "success",
-          characterId: "local-" + Date.now(),
-          message: "Character saved locally (simulation)"
-        };
-        console.log("Local save success:", mockData);
-        Cookies.set("characterId", mockData.characterId);
-        resolve(mockData);
-      }, 500);
-      return;
-    }
 
     // Send POST request to Kirby backend
     fetch("api.character.create", {
